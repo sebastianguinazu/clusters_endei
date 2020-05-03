@@ -1,0 +1,1455 @@
+#;variable;etiqueta;valores_perdidos;tipo;cluster;modelo;familia
+1;ide_endei_ii;Codigo identificador de la empresa;;;;si;
+2;estrato;Estrato de la muestra;;;;no;
+3;rama_act;Rama de actividad de la empresa;;categorica;;si;general
+4;tam_mue;Tamano de empresa;-99;categorica;;si;general
+5;factor2;Factor de expansion;;;;no;
+6;outlier;Outlier en Gastos de AI;;;;no;
+7;perfil_inn;Perfil de innovacion;;categorica;;si;innovacion
+8;p.1.7;Ano inicio de la actividad;-99;categorica;;si;general
+9;p.1.8;Origen del capital;-99;categorica;;si;general
+10;p.1.9;Tipo de empresa;-99;categorica;;si;general
+11;p.1.10.a;Primer cliente/comprador de su produccion;;categorica;;si;general
+12;p.1.10.b;Segundo cliente/comprador de su produccion;;categorica;;si;general
+13;p.1.11.1;Indique la proporcion de las ventas de su  establecimiento que es absorbida por su cliente mas  importante;;categorica;;si;general
+14;p.1.12.1;Alcance geografico CLIENTES: Localidad y alrededores;;categorica;;si;general
+15;p.1.12.2;Alcance geografico CLIENTES: Resto del pais;;categorica;;si;general
+16;p.1.12.3;Alcance geografico CLIENTES: MERCOSUR (Brasil,  Paraguay y Uruguay);;categorica;;si;general
+17;p.1.12.4;Alcance geografico CLIENTES: Resto Latinoamerica;;categorica;;si;general
+18;p.1.12.5;Alcance geografico CLIENTES: EE.UU y Canada;;categorica;;si;general
+19;p.1.12.6;Alcance geografico CLIENTES: EUROPA;;categorica;;si;general
+20;p.1.12.7;Alcance geografico CLIENTES: Asia (China, India, Rusia,  otros);;categorica;;si;general
+21;p.1.12.8;Alcance geografico CLIENTES: africa y Oceania;;categorica;;si;general
+22;p.1.14;Indique cuanto representan sus exportaciones en las  ventas totales de 2016;;categorica;;si;general
+23;p.1.15.a;Primer proveedor para su produccion;;categorica;;si;general
+24;p.1.15.b;Segundo proveedor para su produccion;;categorica;;si;general
+25;p.1.16.1;Alcance geografico PROVEEDORES: Localidad y  alrededores;;categorica;;si;general
+26;p.1.16.2;Alcance geografico PROVEEDORES: Resto del pais;;categorica;;si;general
+27;p.1.16.3;Alcance geografico PROVEEDORES: MERCOSUR  (Brasil, Paraguay y Uruguay);;categorica;;si;general
+28;p.1.16.4;Alcance geografico PROVEEDORES: Resto Latinoamerica;;categorica;;si;general
+29;p.1.16.5;Alcance geografico PROVEEDORES: EE.UU y Canada;;categorica;;si;general
+30;p.1.16.6;Alcance geografico PROVEEDORES: Europa;;categorica;;si;general
+31;p.1.16.7;Alcance geografico PROVEEDORES: Asia (China, India,  Rusia, otros);;categorica;;si;general
+32;p.1.16.8;Alcance geografico PROVEEDORES: africa y Oceania;;categorica;;si;general
+33;p.2.1.1;Indique la primer afirmacion que explica mejor el  exito de su empresa;;categorica;;si;planificacion
+34;p.2.1.2;Indique la segunda afirmacion que explica mejor el exito de su empresa;;categorica;;si;planificacion
+35;p.2.1.3;Indique la tercer afirmacion que explica mejor el exito de su empresa;;categorica;;si;planificacion
+36;p.2.2;¿Con cual de las siguientes conductas su empresa se identifica mejor?;;categorica;;si;planificacion
+37;p.2.3.1;¿Realiza el monitoreo y/o analisis de Potenciales oportunidades de innovacion para su empresa?;;categorica;;si;monitoreo
+38;p.2.4.1;Dicho monitoreo y/o analisis ¿lo realiza de manera frecuente?;;categorica;;si;monitoreo
+39;p.2.5.1;¿Existe algun responsable /equipo dentro de la  empresa que realiza dicho monitoreo y/o analisis?;;categorica;;si;monitoreo
+40;p.2.6.1;¿Cuenta con recursos de informacion para monitorear este aspecto (Bases de datos, suscripciones a revistas tecnicas, buscadores especializados, charlas con proveedores – clientes – especialistas – competidores, etc?;;categorica;;si;monitoreo
+41;p.2.3.2;"¿Realiza el monitoreo y/o analisis del Estado de
+ desarrollo tecnologico de su empresa?";;categorica;;si;monitoreo
+42;p.2.4.2;"Dicho monitoreo y/o analisis ¿lo realiza de manera
+ frecuente?";;categorica;;si;monitoreo
+43;p.2.5.2;"¿Existe algun responsable /equipo dentro de la
+ empresa que realiza dicho monitoreo y/o analisis?";;categorica;;si;monitoreo
+44;p.2.6.2;¿Cuenta con recursos de informacion para monitorear este aspecto (Bases de datos, suscripciones a revistas tecnicas, buscadores especializados, charlas con proveedores – clientes – especialistas – competidores, etc?;;categorica;;si;monitoreo
+45;p.2.3.3;"¿Realiza el monitoreo y/o analisis de Las fortalezas y
+ capacidades de su empresa?";;categorica;;si;monitoreo
+46;p.2.4.3;"Dicho monitoreo y/o analisis ¿lo realiza de manera
+ frecuente?";;categorica;;si;monitoreo
+47;p.2.5.3;"¿Existe algun responsable /equipo dentro de la
+ empresa que realiza dicho monitoreo y/o analisis?";;categorica;;si;monitoreo
+48;p.2.6.3;¿Cuenta con recursos de informacion para monitorear este aspecto (Bases de datos, suscripciones a revistas tecnicas, buscadores especializados, charlas con proveedores – clientes – especialistas – competidores, etc?;;categorica;;si;monitoreo
+49;p.2.3.4;"¿Realiza el monitoreo y/o analisis a los clientes
+ actuales y potenciales?";;categorica;;si;monitoreo
+50;p.2.4.4;"Dicho monitoreo y/o analisis ¿lo realiza de manera
+ frecuente?";;categorica;;si;monitoreo
+51;p.2.5.4;"¿Existe algun responsable /equipo dentro de la
+ empresa que realiza dicho monitoreo y/o analisis?";;categorica;;si;monitoreo
+52;p.2.6.4;¿Cuenta con recursos de informacion para monitorear este aspecto (Bases de datos, suscripciones a revistas tecnicas, buscadores especializados, charlas con proveedores – clientes – especialistas – competidores, etc?;;categorica;;si;monitoreo
+53;p.2.3.5;"¿Realiza el monitoreo y/o analisis a sus competidores
+ (directos o indirectos)?";;categorica;;si;monitoreo
+54;p.2.4.5;"Dicho monitoreo y/o analisis ¿lo realiza de manera
+ frecuente?";;categorica;;si;monitoreo
+55;p.2.5.5;"¿Existe algun responsable /equipo dentro de la
+ empresa que realiza dicho monitoreo y/o analisis?";;categorica;;si;monitoreo
+56;p.2.6.5;¿Cuenta con recursos de informacion para monitorear este aspecto (Bases de datos, suscripciones a revistas tecnicas, buscadores especializados, charlas con proveedores – clientes – especialistas – competidores, etc?;;categorica;;si;monitoreo
+57;p.2.7.1;"Identifica sistematicamente las necesidades de
+ informacion de su empresa y las fuentes disponibles a
+ consultar";;categorica;;si;monitoreo
+58;p.2.7.2;Monitorea informacion del campo cientifico (publicaciones cientificas, articulos tecnicos) y tecnologico (patentes, marcas);;categorica;;si;monitoreo
+59;p.2.7.3;"Monitorea informacion de mercado y negocios u
+ otras fuentes (legislaciones, eventos, normativas,
+ financiamiento, etc.)";;categorica;;si;monitoreo
+60;p.2.7.4;"Solicita informacion sobre Tecnologias a algun centro
+ tecnologico, universidad o expertos";;categorica;;si;monitoreo
+61;p.2.7.5;"Solicita a algun proveedor externo busquedas de
+ informacion o informes vinculados a sus mercados";;categorica;;si;monitoreo
+62;p.2.7.6;"Existe un presupuesto para el acceso a base de datos,
+ suscripcion a revistas tecnicas, solicitud de informes y
+ compra de documentos";;categorica;;si;monitoreo
+63;p.2.7.7;"Hay alguna persona entrenada para acceder a bases
+ de datos complejas que requieren busquedas
+ avanzadas";;categorica;;si;monitoreo
+64;p.2.7.8;"Se hacen reuniones periodicas para debatir y analizar
+ la informacion recopilada a nivel de Direccion";;categorica;;si;monitoreo
+65;p.2.7.9;"Se establece un metodo y/o herramientas para
+ formalizar y difundir facilmente la informacion
+ recopilada";;categorica;;si;monitoreo
+66;p.2.7.10;"Esta informacion se utiliza para definir y/o ajustar el
+ Plan Estrategico o para la toma de decisiones de la
+ empresa";;categorica;;si;monitoreo
+67;p.2.8.1;"Calidad: Realiza especificaciones de las materias
+ primas e insumos criticos";;categorica;;si;calidad
+68;p.2.8.2;"Calidad: Realiza especificaciones de las caracteristicas
+ criticas del proceso y/o producto";;categorica;;si;calidad
+69;p.2.8.3;"Calidad: Realiza trazabilidad (seguimiento del
+ producto durante el proceso productivo)";;categorica;;si;calidad
+70;p.2.8.4;"Calidad: Existen equipos para solucionar problemas o
+ lograr mejoras en el proceso";;categorica;;si;calidad
+71;p.2.8.5;"Calidad: Utiliza herramientas internas de mejora
+ continua (Ej. Diagrama de Causa-Efecto, Diag. de
+ arbol, Diag. Matricial. Histograma)";;categorica;;si;calidad
+72;p.2.8.6;"Calidad: Utiliza rutinas / procedimientos especificos
+ que orientan las actividades de diseno o redisenos de
+ productos/procesos";;categorica;;si;calidad
+73;p.2.8.7;"Calidad: Utiliza herramientas especificas de gestion de
+ proyecto y diseno (Ej. Diag. de GANTT, Planos,
+ Prototipos, Maquetas, software de diseno y
+ simulacion)";;categorica;;si;calidad
+74;p.2.8.8;"Calidad: Implementan Normas ISO de aseguramiento
+ de la calidad";;categorica;;si;calidad
+75;p.2.8.9;"Calidad: Implementan Normas sectoriales o de
+ productos";;categorica;;si;calidad
+76;p.2.8.10;Calidad: Otras actividades o herramientas;;categorica;;si;calidad
+77;p.2.8.10.otros;Calidad: Otras especifique;;categorica;;si;ai
+78;p.3.1.1;Innovacion: Investigacion y Desarrollo (I+D) interna;;categorica;;si;ai
+79;p.3.1.2;Innovacion: Subcontratacion de I+D externa;;categorica;;si;ai
+80;p.3.1.3;Innovacion: Diseno industrial e Ingenieria (interna);;categorica;;si;ai
+81;p.3.1.4;Innovacion: Adquisicion de maquinaria y equipos;;categorica;;si;ai
+82;p.3.1.5;Innovacion: Adquisicon de hardware y software;;categorica;;si;ai
+83;p.3.1.6;Innovacion: Transferencia tecnologica;;categorica;;si;ai
+84;p.3.1.7;Innovacion: Capacitacion para la introduccion de innovaciones;;categorica;;si;ai
+85;p.3.1.8;Innovacion: Consultorias;;categorica;;si;ai
+86;p.3.2;"¿Con que frecuencia se realizan las actividades de
+ innovacion? (Elija una opcion)";;categorica;;si;ai
+87;p.4.1.1;Resultado AI: Obtuvo nuevos productos;;categorica;;si;ai
+88;p.4.2.1.1;Obtuvo nuevos productos y fue novedoso p/empresa;;categorica;;si;ai
+89;p.4.2.2.1;"Obtuvo nuevos productos y fue novedoso p/mercado
+ Nacional";;categorica;;si;ai
+90;p.4.2.3.1;"Obtuvo nuevos productos y fue novedoso p/mercado
+ internac.";;categorica;;si;ai
+91;p.4.1.2;Resultado AI: Mejoro significativamente un producto;;categorica;;si;ai
+92;p.4.2.1.2;"Mejoro significativamente un producto y fue
+ novedoso p/empresa";;categorica;;si;ai
+93;p.4.2.2.2;"Mejoro significativamente un producto y fue
+ novedoso p/mercado nacional";;categorica;;si;ai
+94;p.4.2.3.2;"Mejoro significativamente un producto y fue
+ novedoso p/mercado internac.";;categorica;;si;ai
+95;p.4.1.3;Resultado AI: Obtuvo un nuevo proceso;;categorica;;si;ai
+96;p.4.2.1.3;Obtuvo un nuevo proceso y fue novedoso p/empresa;;categorica;;si;ai
+97;p.4.2.2.3;"Obtuvo un nuevo proceso y fue novedoso p/mercado
+ nacional";;categorica;;si;ai
+98;p.4.2.3.3;"Obtuvo un nuevo proceso y fue novedoso p/mercado
+ internac.";;categorica;;si;ai
+99;p.4.1.4;Resultado AI: Mejoro significativamente un proceso;;categorica;;si;ai
+100;p.4.2.1.4;"Mejoro significativamente un proceso y fue novedoso
+ p/empresa";;categorica;;si;ai
+101;p.4.2.2.4;"Mejoro significativamente un proceso y fue novedoso
+ p/mercado nacional";;categorica;;si;ai
+102;p.4.2.3.4;"Mejoro significativamente un proceso y fue novedoso
+ p/mercado internac.";;categorica;;si;ai
+103;p.4.3.1;Resultado AI: Obtuvo innovac. Organizacional;;categorica;;si;ai
+104;p.4.3.2;Resultado AI: Obtuvo innovac. Comercializacion;;categorica;;si;ai
+105;p.4.4.1.porcentaje;"¿Cuanto representan en su facturacion del ano 2016
+ los nuevos productos que obtuvo en el periodo 2014-
+ 2016 y fueron lanzados al mercado?";-88, -99;numeric;;si;ai
+106;p.4.4.2.porcentaje;"¿Cuanto representan en su facturacion del ano 2016
+ los productos que fueron significativamente
+ mejorados durante 2014-2016?";-88, -99;numeric;;si;ai
+107;p.4.4.3.porcentaje;"¿Cuanto representan en su facturacion del ano 2016
+ los restantes productos que conforman su cartera y
+ no sufrieron cambios?";-88, -99;numeric;;si;ai
+108;p.5.1.1;"Actividades de Inn. han sido llevadas por Duenos de la
+ empresa";;categorica;;si;ai
+109;p.5.1.2;"Actividades de Inn. han sido llevadas por un Consultor
+ Externo";;categorica;;si;ai
+110;p.5.1.3;"Actividades de Inn. han sido llevadas por la Casa
+ Matriz / Empresas del grupo";;categorica;;si;ai
+111;p.5.1.4;"Actividades de Inn. han sido llevadas por un Equipo o
+ grupo de trabajo (no formal)";;categorica;;si;ai
+112;p.5.2.1_2014;"Cantidad total de personas que forman parte del
+ equipo o grupo de trabajo (no formal) en el ano 2014";-77, -88, -99;numeric;;si;personal
+113;p.5.2.1_2015;"Cantidad total de personas que forman parte del
+ equipo o grupo de trabajo (no formal) en el ano 2015";-77, -88, -99;numeric;;si;personal
+114;p.5.2.1_2016;Cantidad total de personas que forman parte del equipo o grupo de trabajo (no formal) en el ano 2016;-77, -88, -99;numeric;;si;personal
+115;p.5.1.5;"Actividades de Inn. han sido llevadas por el area de
+ Diseno Industrial e Ingenieria";;categorica;;si;personal
+116;p.5.2.2_2014;"Cantidad total de personas que forman parte del area
+ de Diseno industrial e Ing. en el ano 2014";-77, -88, -99;numeric;;si;personal
+117;p.5.2.2_2015;"Cantidad total de personas que forman parte del area
+ de Diseno industrial e Ing. en el ano 2015";-77, -88, -99;numeric;;si;personal
+118;p.5.2.2_2016;"Cantidad total de personas que forman parte del area
+ de Diseno industrial e Ing. en el ano 2016";-77, -88, -99;numeric;;si;personal
+119;p.5.1.6;"Actividades de Inn. han sido llevadas por un Comite,
+ departamento o area formal de Investigacion y
+ Desarrollo (I+D)";;categorica;;si;personal
+120;p.5.3.1_2014;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion - 2014";-77, -88, -99;numeric;;si;personal
+121;p.5.3.1_2015;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion - 2015";-77, -88, -99;numeric;;si;personal
+122;p.5.3.1_2016;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion - 2016";-77, -88, -99;numeric;;si;personal
+123;p.5.3.1_mujeres;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion - Mujeres";-77, -88, -99;numeric;;si;personal
+124;p.5.4;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion que trabajan mas de 30 horas-2016";-77, -88, -99;numeric;;si;personal
+125;p.5.5;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion con Nivel de Doctorado-2016";-77, -88, -99;numeric;;si;personal
+126;p.5.6;"Cantidad de Profesionales, Tecnologos y Asistentes de
+ Investigacion con Nivel de Doctorado MUJERES-2016";-77, -88, -99;numeric;;si;personal
+127;p.5.3.2_2014;Cantidad de tecnicos y otros de apoyo-2014;-77, -88, -99;numeric;;si;personal
+128;p.5.3.2_2015;Cantidad de tecnicos y otros de apoyo-2015;-77, -88, -99;numeric;;si;personal
+129;p.5.3.2_2016;Cantidad de tecnicos y otros de apoyo-2016;-77, -88, -99;numeric;;si;personal
+130;p.5.3.2_mujeres;Cantidad de tecnicos y otros de apoyo-Mujeres;-77, -88, -99;numeric;;si;personal
+131;p.5.7.1;Diagnostica las actividades de innovacion a desarrollar;;categorica;;si;personal
+132;p.5.7.2;Planifica las actividades de innovacion;;categorica;;si;planificacion
+133;p.5.7.3;Define la metodologia y las actividades a realizar;;categorica;;si;planificacion
+134;p.5.7.4;Desarrolla las actividades;;categorica;;si;planificacion
+135;p.5.7.5;Evalua y mide el impacto los resultados logrados;;categorica;;si;planificacion
+136;p.6.1.1;Proteccion informal: Llegar primero al mercado;;categorica;;si;proteccion
+137;p.6.2.1;Eficacia proteccion: Llegar primero al mercado;;categorica;;si;proteccion
+138;p.6.1.2;"Proteccion informal: Comunicacion activa con los
+ clientes";;categorica;;si;proteccion
+139;p.6.2.2;"Eficacia proteccion: Comunicacion activa con los
+ clientes";;categorica;;si;proteccion
+140;p.6.1.3;"Proteccion informal: Control de redes de distribucion
+ y ventas";;categorica;;si;proteccion
+141;p.6.2.3;"Eficacia proteccion: Control de redes de distribucion y
+ ventas";;categorica;;si;proteccion
+142;p.6.1.4;"Proteccion informal: Mantener cuestiones
+ tecnologicas clave en secreto";;categorica;;si;proteccion
+143;p.6.2.4;"Eficacia proteccion: Mantener cuestiones
+ tecnologicas clave en secreto";;categorica;;si;proteccion
+144;p.6.1.5;Proteccion informal: Acceso exclusivo a insumo;;categorica;;si;proteccion
+145;p.6.2.5;Eficacia proteccion: Acceso exclusivo a insumo;;categorica;;si;proteccion
+146;p.6.1.6;Proteccion informal: Escala de produccion;;categorica;;si;proteccion
+147;p.6.2.6;Eficacia proteccion: Escala de produccion;;categorica;;si;proteccion
+148;p.6.1.7;"Proteccion informal: Asistencia tecnica/servicio pos
+ venta";;categorica;;si;proteccion
+149;p.6.2.7;"Eficacia proteccion: Asistencia tecnica/servicio pos
+ venta";;categorica;;si;proteccion
+150;p.6.1.8;Proteccion informal: Otra estrategia;;categorica;;si;proteccion
+151;p.6.2.8;"Eficacia proteccion: Otra estrategia para proteger la
+ innovacion";;categorica;;si;proteccion
+152;p.6.3.1;Proteccion formal: Modelos / Diseno Industrial;;categorica;;si;proteccion
+153;p.6.4.1;Eficacia proteccion: Modelos / Diseno Industrial;;categorica;;si;proteccion
+154;p.6.3.2;Proteccion formal: Marcas;;categorica;;si;proteccion
+155;p.6.4.2;Eficacia proteccion: Marcas;;categorica;;si;proteccion
+156;p.6.3.3;Proteccion formal: Denominacion de origen;;categorica;;si;proteccion
+157;p.6.4.3;Eficacia proteccion: Denominacion de origen;;categorica;;si;proteccion
+158;p.6.3.4;Proteccion formal: Modelo de utilidad;;categorica;;si;proteccion
+159;p.6.4.4;Eficacia proteccion: Modelo de utilidad;;categorica;;si;proteccion
+160;p.6.3.5;Proteccion formal: Derechos de autor;;categorica;;si;proteccion
+161;p.6.4.5;Eficacia proteccion: Derechos de autor;;categorica;;si;proteccion
+162;p.6.3.6;Proteccion formal: Derechos de obtentor;;categorica;;si;proteccion
+163;p.6.4.6;Eficacia proteccion: Derechos de obtentor;;categorica;;si;proteccion
+164;p.6.3.7;"Proteccion formal: Firma de contratos de
+ confidencialidad con el personal";;categorica;;si;proteccion
+165;p.6.4.7;"Eficacia proteccion: Firma de contratos de
+ confidencialidad con el personal";;categorica;;si;proteccion
+166;p.6.3.8;"Proteccion formal: Firma de contratos de exclusividad
+ con clientes";;categorica;;si;proteccion
+167;p.6.4.8;"Eficacia proteccion: Firma de contratos de
+ exclusividad con clientes";;categorica;;si;proteccion
+168;p.6.3.9;Proteccion formal: Patentes;;categorica;;si;proteccion
+169;p.6.4.9;Eficacia proteccion: Patentes;;categorica;;si;proteccion
+170;p.6.5;"Etapa del proceso de innovacion en que se planteo la
+ intencion/posibilidad de patentar";;categorica;;si;patentes
+171;p.6.6.1;Pais patentamiento: Argentina;;categorica;;si;patentes
+172;p.6.6.2;Pais patentamiento: PCT;;categorica;;si;patentes
+173;p.6.6.3;Pais patentamiento: Brasil;;categorica;;si;patentes
+174;p.6.6.4;Pais patentamiento: Chile;;categorica;;si;patentes
+175;p.6.6.5;Pais patentamiento: Paraguay;;categorica;;si;patentes
+176;p.6.6.6;Pais patentamiento: Uruguay;;categorica;;si;patentes
+177;p.6.6.7;Pais patentamiento: Mexico;;categorica;;si;patentes
+178;p.6.6.8;Pais patentamiento: Estados Unidos;;categorica;;si;patentes
+179;p.6.6.9;Pais patentamiento: Canada;;categorica;;si;patentes
+180;p.6.6.10;Pais patentamiento: Europa/Paises de Europa;;categorica;;si;patentes
+181;p.6.6.11;Pais patentamiento: China;;categorica;;si;patentes
+182;p.6.6.12;Pais patentamiento: Japon;;categorica;;si;patentes
+183;p.6.6.13;Pais patentamiento: Otros;;categorica;;si;patentes
+184;p.6.6.13.otros;Pais patentamiento: Especificar;;categorica;;si;patentes
+185;p.6.7.1;Motivos patentamiento: Prevenir la copia;;categorica;;si;patentes
+186;p.6.7.2;"Motivos patentamiento: Obtener ingresos por
+ licencias";;categorica;;si;patentes
+187;p.6.7.3;"Motivos patentamiento: Fortalecer su posicion en
+ negociaciones";;categorica;;si;patentes
+188;p.6.7.4;"Motivos patentamiento: Bloquear el desarrollo de
+ capacidades similares en competidores";;categorica;;si;patentes
+189;p.6.7.5;Motivos patentamiento: Incrementar la reputacion de su empresa;;categorica;;si;patentes
+190;p.6.7.6;Motivos patentamiento: Acceder a nuevos mercados;;categorica;;si;patentes
+191;p.6.7.7;"Motivos patentamiento: Bloqueo de productos
+ sustitutos de su innovacion (evitar copia alrededor de
+ la patente)";;categorica;;si;patentes
+192;p.6.8.1;"Motivos NO patentamiento: Desconocia como
+ patentar";;categorica;;si;patentes
+193;p.6.8.2;"Motivos NO patentamiento: Considero que el tramite
+ era engorroso/costoso";;categorica;;si;patentes
+194;p.6.8.3;"Motivos NO patentamiento: Considero elevado el
+ riesgo de revelar informacion";;categorica;;si;patentes
+195;p.6.8.4;"Motivos NO patentamiento: Imposibilidad/dificultad
+ de defender legalmente los derechos de propiedad";;categorica;;si;patentes
+196;p.6.8.5;"Motivos NO patentamiento: Rechazaron el pedido de
+ patente";;categorica;;si;patentes
+197;p.6.8.6;"Motivos NO patentamiento: Falta de asistencia
+ tecnica en el proceso";;categorica;;si;patentes
+198;p.6.8.7;"Motivos NO patentamiento: La innovacion no es
+ patentable";;categorica;;si;patentes
+199;p.6.8.8;Motivos NO patentamiento: Otros motivos;;categorica;;si;patentes
+200;p.6.8.9;Motivos NO patentamiento: No le intereso patentar;;categorica;;si;patentes
+201;p.7.1.1.a;Fuentes internas: area de Investigacion y Desarrollo;;categorica;;si;fuentes
+202;p.7.1.1.b;Fuentes internas: area Comercial. Marketing;;categorica;;si;fuentes
+203;p.7.1.1.c;Fuentes internas: area de Produccion / Ingenieria;;categorica;;si;fuentes
+204;p.7.1.1.d;"Fuentes internas: Gerencia / Direccion (incluyendo
+ dueno / socio)";;categorica;;si;fuentes
+205;p.7.1.1.e;"Fuentes internas: Firmas relacionadas de su empresa
+ o grupo / Casa Matriz";;categorica;;si;fuentes
+206;p.7.1.1.f;Fuentes internas: Otras;;categorica;;si;fuentes
+207;p.7.1.1.f.otros;Fuentes internas: Otras especifique;;categorica;;si;fuentes
+208;p.7.1.2.a;Fuentes de mercado: Proveedores / clientes;;categorica;;si;fuentes
+209;p.7.1.2.b;Fuentes de mercado: Competidores / otras firmas;;categorica;;si;fuentes
+210;p.7.1.2.c;Fuentes de mercado: Consultores;;categorica;;si;fuentes
+211;p.7.1.3.a;Otras fuentes: Universidad Publica y/o Privada;;categorica;;si;fuentes
+212;p.7.1.3.b;"Otras fuentes: Instituciones Publicas de Ciencia y
+ Tecnologia (INTI, CONICET, ANMAT, etc.)";;categorica;;si;fuentes
+213;p.7.1.3.c;"Otras fuentes: Internet (blogs, Facebook, pag. webs) y
+ medios de comunicacion (TV, radio, diarios)";;categorica;;si;fuentes
+214;p.7.1.3.d;"Otras fuentes: Camaras y asociaciones empresariales
+ (revistas sectoriales)";;categorica;;si;fuentes
+215;p.7.1.3.e;"Otras fuentes: Ferias, conferencias, exposiciones,
+ congresos";;categorica;;si;fuentes
+216;p.7.1.3.f;"Otras fuentes: Publicaciones tecnicas, catalogos,
+ revistas academicas";;categorica;;si;fuentes
+217;p.7.1.3.g;Otras fuentes: Otras;;categorica;;si;fuentes
+218;p.7.1.3.g.otros;Otras fuentes: especifique;;categorica;;si;fuentes
+219;p.7.2.1;"Motivos: Mejorar el proceso productivo (reducir
+ costos, aumentar la capacidad, etc.)";;categorica;;si;fuentes
+220;p.7.2.2;"Motivos: Incorporar y/o modernizar las tecnologias de
+ produccion";;categorica;;si;fuentes
+221;p.7.2.3;"Motivos: Mejorar la calidad mediante controles o
+ sistemas de aseguramiento de la calidad";;categorica;;si;fuentes
+222;p.7.2.4;Motivos: Profesionalizar y/o mejorar el perfil tecnico de los empleados;;categorica;;si;fuentes
+223;p.7.2.5;"Motivos: Mejorar o fabricar nuevos productos para
+ competir (ej. sustitucion de importaciones)";;categorica;;si;fuentes
+224;p.7.2.6;Motivos: Satisfacer necesidades de los clientes;;categorica;;si;fuentes
+225;p.7.2.7;"Motivos: Ingresar nuevos mercados Nacionales e
+ Internacionales (incluye desarrollo de nichos o
+ segmentos de mercado)";;categorica;;si;fuentes
+226;p.7.2.8;"Motivos: Incrementar o mantener su participacion en
+ el mercado";;categorica;;si;fuentes
+227;p.7.2.9;"Motivos: Mejorar o cambiar la estructura organizativa
+ de la empresa";;categorica;;si;fuentes
+228;p.7.2.10;Motivos: Mejorar el desempeno medioambiental;;categorica;;si;fuentes
+229;p.7.2.11;Motivos: Cumplir con regulaciones y normas;;categorica;;si;fuentes
+230;p.7.2.12;Motivos: Otros motivos;;categorica;;si;fuentes
+231;p.7.2.12.otros;Motivos: Otros especifique;;categorica;;si;fuentes
+232;p.7.3.1;Obstaculos: Reticencia de los empleados al cambio;;categorica;;si;obstaculos
+233;p.7.3.2;"Obstaculos: Falta de personal calificado en la empresa
+ o con experiencia para llevar adelante las actividades
+ de innovacion";;categorica;;si;obstaculos
+234;p.7.3.3;"Obstaculos: Falta de proveedores especializados o
+ dificultad para cambiarlos";;categorica;;si;obstaculos
+235;p.7.3.4;"Obstaculos: Altos costos para el desarrollo de
+ productos, procesos y/ cambios en la gestion";;categorica;;si;obstaculos
+236;p.7.3.5;"Obstaculos: El periodo de retorno de la inversion es
+ excesivamente largo";;categorica;;si;obstaculos
+237;p.7.3.6;"Obstaculos: Dificultad para financiar las actividades de
+ innovacion (altas tasas, requisitos, montos
+ insuficientes, etc.)";;categorica;;si;obstaculos
+238;p.7.3.7;Obstaculos: Competencia desleal;;categorica;;si;obstaculos
+239;p.7.3.8;Obstaculos: La empresa no lo requiere/no le interesa;;categorica;;si;obstaculos
+240;p.7.3.9;"Obstaculos: Dificultades en la importacion de bienes
+ claves para la innovacion";;categorica;;si;obstaculos
+241;p.7.3.10;Obstaculos: Incertidumbre economica/financiera;;categorica;;si;obstaculos
+242;p.7.3.11;Obstaculos: Otros;;categorica;;si;obstaculos
+243;p.7.3.11.otros;Obstaculos: Otros especifique;;categorica;;si;obstaculos
+244;p.8.1.1;"Conoce Financ.: Ex SEPYME - Secretaria Pyme y
+ Desarrollo Regional";;categorica;;si;financiamiento
+245;p.8.1.2;Conoce Financ.: CFI - Consejo Federal de Inversiones;;categorica;;si;financiamiento
+246;p.8.1.3;"Conoce Financ.: Organismo publico
+ provincial/municipal";;categorica;;si;financiamiento
+247;p.8.1.4;Conoce Financ.: Otras instituciones publicas;;categorica;;si;financiamiento
+248;p.8.1.4.otros;"Conoce Financ.: Otras instituciones publicas
+ (especifique)";;categorica;;si;financiamiento
+249;p.8.1.5;Conoce Financ.: FONTAR;;categorica;;si;financiamiento
+250;p.8.1.6;Conoce Financ.: FONARSEC;;categorica;;si;financiamiento
+251;p.8.1.7;Conoce Financ.: FONSOFT;;categorica;;si;financiamiento
+252;p.8.1.8;Conoce Financ.: COFECyT;;categorica;;si;financiamiento
+253;p.8.2.1;Conoce MINCYT - Fuente: Empresarios amigos;;categorica;;si;financiamiento
+254;p.8.2.2;"Conoce MINCYT - Fuente: Informaciones distribuidas
+ por camaras empresariales";;categorica;;si;financiamiento
+255;p.8.2.3;"Conoce MINCYT - Fuente: Informaciones distribuidas
+ por UVT / OVTT";;categorica;;si;financiamiento
+256;p.8.2.4;Conoce MINCYT - Fuente: Medios (diario, television, radio, etc.);;categorica;;si;financiamiento
+257;p.8.2.5;"Conoce MINCYT - Fuente: Folleteria y/o sitio web del
+ Ministerio y ANPCyT";;categorica;;si;financiamiento
+258;p.8.2.6;"Conoce MINCYT - Fuente: Ferias, exposiciones y
+ eventos";;categorica;;si;financiamiento
+259;p.8.2.7;Conoce MINCYT - Fuente: Otros medios;;categorica;;si;financiamiento
+260;p.8.2.7.otros;Conoce MINCYT - Fuente: Otros (especifique);;categorica;;si;financiamiento
+261;p.8.3.1;"Conoce MINCYT: ¿Cuanto sabe sobre el Tipo de
+ financiamiento que ofrecen (credito, subsidio, credito
+ fiscal, tasas, periodo de gracia)?";;categorica;;si;financiamiento
+262;p.8.3.2;"Conoce MINCYT: ¿Cuanto sabe sobre el Tipo de
+ proyectos que financian (innovacion, I+D,
+ modernizacion)?";;categorica;;si;financiamiento
+263;p.8.3.3;"Conoce MINCYT: ¿Cuanto sabe sobre el Tipo de
+ beneficiarios (PyME, Grande, cooperativas, UTE)?";;categorica;;si;financiamiento
+264;p.9.1;Se vinculo para Capacitacion de RR.HH.;;categorica;;si;vinculacion
+265;p.9.1.a;"Se vinculo para R.H.: Empresas del Grupo y /o Casa
+ matriz";;categorica;;si;vinculacion
+266;p.9.1.b;"Se vinculo para R.H.: Otras firmas (Clientes,
+ proveedores y/o competidores)";;categorica;;si;vinculacion
+267;p.9.1.c;"Se vinculo para R.H.: Universidades publicas y/o
+ privadas";;categorica;;si;vinculacion
+268;p.9.1.d;"Se vinculo para R.H.: Instituc. publicas de ciencia y
+ tecnologia";;categorica;;si;vinculacion
+269;p.9.1.e;"Se vinculo para R.H.: Camaras o asociaciones
+ empresariales, ONG, sindicatos, asociac. Gremiales";;categorica;;si;vinculacion
+270;p.9.1.f;Se vinculo para R.H.: Consultores / Asesores;;categorica;;si;vinculacion
+271;p.9.1.g;Se vinculo para R.H.: Otro agente;;categorica;;si;vinculacion
+272;p.9.1.g.otros;Se vinculo para R.H.: Otro agente (especifique);;categorica;;si;vinculacion
+273;p.9.2;Se vinculo para Investigacion y Desarrollo;;categorica;;si;vinculacion
+274;p.9.2.a;"Se vinculo para I+D: Empresas del Grupo y /o Casa
+ matriz";;categorica;;si;vinculacion
+275;p.9.2.b;"Se vinculo para I+D: Otras firmas (Clientes,
+ proveedores y/o competidores)";;categorica;;si;vinculacion
+276;p.9.2.c;"Se vinculo para I+D: Universidades publicas y/o
+ privadas";;categorica;;si;vinculacion
+277;p.9.2.d;"Se vinculo para I+D: Instituc. publicas de ciencia y
+ tecnologia";;categorica;;si;vinculacion
+278;p.9.2.e;"Se vinculo para I+D: Camaras o asociaciones
+ empresariales, ONG, sindicatos, asociac. gremiales";;categorica;;si;vinculacion
+279;p.9.2.f;Se vinculo para I+D: Consultores / Asesores;;categorica;;si;vinculacion
+280;p.9.2.g;Se vinculo para I+D: Otro agente;;categorica;;si;vinculacion
+281;p.9.2.g.otros;Se vinculo para I+D: Otro agente (especifique);;categorica;;si;vinculacion
+282;p.9.3;Se vinculo para Pruebas y Ensayos;;categorica;;si;vinculacion
+283;p.9.3.a;"Se vinculo para P y E: Empresas del Grupo y /o Casa
+ matriz";;categorica;;si;vinculacion
+284;p.9.3.b;"Se vinculo para P y E: Otras firmas (Clientes,
+ proveedores y/o competidores)";;categorica;;si;vinculacion
+285;p.9.3.c;"Se vinculo para P y E: Universidades publicas y/o
+ privadas";;categorica;;si;vinculacion
+286;p.9.3.d;"Se vinculo para P y E: Instituc. publicas de ciencia y
+ tecnologia";;categorica;;si;vinculacion
+287;p.9.3.e;Se vinculo para P y E: Camaras o asociaciones empresariales, ONG, sindicatos, asociac. gremiales;;categorica;;si;vinculacion
+288;p.9.3.f;Se vinculo para P y E: Consultores / Asesores;;categorica;;si;vinculacion
+289;p.9.3.g;Se vinculo para P y E: Otro agente;;categorica;;si;vinculacion
+290;p.9.3.g.otros;Se vinculo para P y E: Otro agente (especifique);;categorica;;si;vinculacion
+291;p.9.4;Se vinculo para Intercambio Tecnologico;;categorica;;si;vinculacion
+292;p.9.4.a;"Se vinculo para Inter. Tec.: Empresas del Grupo y /o
+ Casa matriz";;categorica;;si;vinculacion
+293;p.9.4.b;"Se vinculo para Inter. Tec.: Otras firmas (Clientes,
+ proveedores y/o competidores)";;categorica;;si;vinculacion
+294;p.9.4.c;"Se vinculo para Inter. Tec.: Universidades publicas y/o
+ privadas";;categorica;;si;vinculacion
+295;p.9.4.d;"Se vinculo para Inter. Tec.: Instituc. publicas de
+ ciencia y tecnologia";;categorica;;si;vinculacion
+296;p.9.4.e;"Se vinculo para Inter. Tec.: Camaras o asociaciones
+ empresariales, ONG, sindicatos, asociac. gremiales";;categorica;;si;vinculacion
+297;p.9.4.f;Se vinculo para Inter. Tec.: Consultores / Asesores;;categorica;;si;vinculacion
+298;p.9.4.g;Se vinculo para Inter. Tec.: Otro agente;;categorica;;si;vinculacion
+299;p.9.4.g.otros;Se vinculo para Inter. Tec.: Otro agente (especifique);;categorica;;si;vinculacion
+300;p.9.5;Se vinculo para Cambios o mejoras organizacionales;;categorica;;si;vinculacion
+301;p.9.5.a;"Se vinculo para Cambio Organiz.: Empresas del Grupo
+ y /o Casa matriz";;categorica;;si;vinculacion
+302;p.9.5.b;"Se vinculo para Cambio Organiz.: Otras firmas
+ (Clientes, proveedores y/o competidores)";;categorica;;si;vinculacion
+303;p.9.5.c;"Se vinculo para Cambio Organiz.: Universidades
+ publicas y/o privadas";;categorica;;si;vinculacion
+304;p.9.5.d;"Se vinculo para Cambio Organiz.: Instituc. publicas de
+ ciencia y tecnologia";;categorica;;si;vinculacion
+305;p.9.5.e;"Se vinculo para Cambio Organiz.: Camaras o
+ asociaciones empresariales, ONG, sindicatos, asociac.
+ gremiales";;categorica;;si;vinculacion
+306;p.9.5.f;"Se vinculo para Cambio Organiz.: Consultores /
+ Asesores";;categorica;;si;vinculacion
+307;p.9.5.g;Se vinculo para Cambio Organiz.: Otro agente;;categorica;;si;vinculacion
+308;p.9.5.g.otros;"Se vinculo para Cambio Organiz.: Otro agente
+ (especifique)";;categorica;;si;vinculacion
+309;p.9.6;"Se vinculo para Desarrollo o mejoras productos/
+ procesos";;categorica;;si;vinculacion
+310;p.9.6.a;"Se vinculo para Desarr y Mejora: Empresas del Grupo
+ y /o Casa matriz";;categorica;;si;vinculacion
+311;p.9.6.b;"Se vinculo para Desarr y Mejora: Otras firmas
+ (Clientes, proveedores y/o competidores)";;categorica;;si;vinculacion
+312;p.9.6.c;"Se vinculo para Desarr y Mejora: Universidades
+ publicas y/o privadas";;categorica;;si;vinculacion
+313;p.9.6.d;"Se vinculo para Desarr y Mejora: Instituc. publicas de
+ ciencia y tecnologia";;categorica;;si;vinculacion
+314;p.9.6.e;"Se vinculo para Desarr y Mejora: Camaras o
+ asociaciones empresariales, ONG, sindicatos, asociac.
+ gremiales";;categorica;;si;vinculacion
+315;p.9.6.f;"Se vinculo para Desarr y Mejora: Consultores /
+ Asesores";;categorica;;si;vinculacion
+316;p.9.6.g;Se vinculo para Desarr y Mejora: Otro agente;;categorica;;si;vinculacion
+317;p.9.6.g.otros;"Se vinculo para Desarr y Mejora: Otro agente
+ (especifique)";;categorica;;si;vinculacion
+318;p.9.7;Se vinculo para Activ. de diseno industrial o ingenieria;;categorica;;si;vinculacion
+319;p.9.7.a;"Se vinculo para Diseno e Ing.: Empresas del Grupo y
+ /o Casa matriz";;categorica;;si;vinculacion
+320;p.9.7.b;"Se vinculo para Diseno e Ing.: Otras firmas (Clientes,
+ proveedores y/o competidores)";;categorica;;si;vinculacion
+321;p.9.7.c;"Se vinculo para Diseno e Ing.: Universidades publicas
+ y/o privadas";;categorica;;si;vinculacion
+322;p.9.7.d;"Se vinculo para Diseno e Ing.: Instituc. publicas de
+ ciencia y tecnologia";;categorica;;si;vinculacion
+323;p.9.7.e;"Se vinculo para Diseno e Ing.: Camaras o asociaciones
+ empresariales, ONG, sindicatos, asociac. gremiales";;categorica;;si;vinculacion
+324;p.9.7.f;Se vinculo para Diseno e Ing.: Consultores / Asesores;;categorica;;si;vinculacion
+325;p.9.7.g;Se vinculo para Diseno e Ing.: Otro agente;;categorica;;si;vinculacion
+326;p.9.7.g.otros;"Se vinculo para Diseno e Ing.: Otro agente
+ (especifique)";;categorica;;si;vinculacion
+327;p.10.1;"¿Existe un area de gestion de recursos humanos en la
+ firma?";;categorica;;si;rrhh
+328;p.10.1.1;¿Quien decide sobre la gestion de recursos humanos?;;categorica;;si;rrhh
+329;p.10.1.2;¿Que posicion en la estructura tiene el area de RRHH?;;categorica;;si;rrhh
+330;p.10.1.3.1;RR.HH.:Definicion de perfiles de los cargos vacantes;;categorica;;si;rrhh
+331;p.10.1.3.2;RR.HH.: Seleccion de postulantes;;categorica;;si;rrhh
+332;p.10.1.3.3;RR.HH.: Nivel de las remuneraciones;;categorica;;si;rrhh
+333;p.10.1.3.4;RR.HH.: Sistemas de premios;;categorica;;si;rrhh
+334;p.10.1.3.5;RR.HH.: Evaluacion del personal;;categorica;;si;rrhh
+335;p.10.1.3.6;"RR.HH.: Modalidades de promocion o de carrera
+ interna";;categorica;;si;rrhh
+336;p.10.2.1;"Perfiles Formaliz.: Personal directivo o gerencial de la
+ empresa";;categorica;;si;rrhh
+337;p.10.2.2;"Perfiles Formaliz.: Jefaturas de nivel medio,
+ supervisores";;categorica;;si;rrhh
+338;p.10.2.3;Perfiles Formaliz.: Personal no jerarquico;;categorica;;si;rrhh
+339;p.10.3.1;"Planes de Carrera: Personal directivo o gerencial de la
+ empresa";;categorica;;si;rrhh
+340;p.10.3.2;"Planes de Carrera: Jefaturas de nivel medio,
+ supervisores";;categorica;;si;rrhh
+341;p.10.3.3;Planes de Carrera: Personal no jerarquico;;categorica;;si;rrhh
+342;p.10.4.1;"Evaluacion: Personal directivo o gerencial de la
+ empresa";;categorica;;si;rrhh
+343;p.10.4.2;Evaluacion: Jefaturas de nivel medio, supervisores;;categorica;;si;rrhh
+344;p.10.4.3;Evaluacion: Personal no jerarquico;;categorica;;si;rrhh
+345;p.10.4.1.1;Evaluacion Influye: Nivel salarial;;categorica;;si;rrhh
+346;p.10.4.1.2;Evaluacion Influye: Premios;;categorica;;si;rrhh
+347;p.10.4.1.3;"Evaluacion Influye: Identificacion de necesidades de
+ capacitacion";;categorica;;si;rrhh
+348;p.10.4.1.4;Evaluacion Influye: Promocion, carrera interna;;categorica;;si;rrhh
+349;p.10.4.1.5;"Evaluacion Influye: Desvinculaciones/ reasignacion de
+ tareas";;categorica;;si;rrhh
+350;p.10.5.1;"Capacitacion Responsable: Diagnostico de las
+ necesidades de capacitacion";;categorica;;si;rrhh
+351;p.10.5.2;"Capacitacion Responsable: Planificacion de las
+ actividades de capacitacion";;categorica;;si;rrhh
+352;p.10.5.3;Capacitacion Responsable: Metodologia a aplicar;;categorica;;si;rrhh
+353;p.10.5.4;Capacitacion Responsable: Carga horaria de las actividades de capacitacion;;categorica;;si;rrhh
+354;p.10.5.5;"Capacitacion Responsable: Desarrollo de actividades
+ de capacitacion";;categorica;;si;rrhh
+355;p.10.5.6;"Capacitacion Responsable: Evaluacion de los
+ resultados obtenidos, en terminos de aprendizaje";;categorica;;si;rrhh
+356;p.10.5.7;Capacitacion Responsable: Evaluacion del impacto de la capacitacion en los procesos de trabajo (Ej. cantidad de incidentes, cantidad de accidentes, horas perdidas, disminucion de errores, aumento de la productividad);;categorica;;si;rrhh
+357;p.10.6.1;"Capacitacion Actividad: Talleres, conferencias
+ informativas o de sensibilizacion (actividades cuyo
+ principal objetivo es la informacion, la sensibilizacion
+ de los trabajadores)";;categorica;;si;rrhh
+358;p.10.6.2;"Capacitacion Actividad: Induccion a nuevos
+ trabajadores (actividades de capacitacion /
+ entrenamiento luego de la contratacion de sus
+ empleados)";;categorica;;si;rrhh
+359;p.10.6.3;"Capacitacion Actividad: Cursos de Seguridad
+ requeridos por la ART (actividades obligatorias
+ organizadas por la ART)";;categorica;;si;rrhh
+360;p.10.6.4;"Capacitacion Actividad: Capacitacion a cargo de
+ proveedores (actividades de capacitacion brindadas
+ por los proveedores, cuando los proveedores la
+ ofrecen a la empresa en forma conjunta con la venta)";;categorica;;si;rrhh
+361;p.10.6.5;"Capacitacion Actividad: Capacitacion en el puesto de
+ trabajo (desarrollo de competencias que se realizan
+ durante el desenvolvimiento de las tareas cotidianas,
+ con el apoyo de un tercero o del supervisor)";;categorica;;si;rrhh
+362;p.10.6.6;Capacitacion Actividad: Otras;;categorica;;si;rrhh
+363;p.10.6.6.otros;Capacitacion Actividad: Otras (especifique);;categorica;;si;rrhh
+364;p.10.7;"Y Durante el ano 2016, ¿los empleados han
+ participado en cursos de formacion definidos por la
+ empresa?";;categorica;;si;rrhh
+365;p.10.8.1;"¿Que porcentaje de Personal directivo o gerencial de
+ la empresa recibio cursos de formacion durante el
+ ano 2016?";-88, -99;numeric;;si;rrhh
+366;p.10.8.2;"¿Que porcentaje de Jefaturas de nivel medio y
+ supervisores de la empresa recibieron cursos de
+ formacion durante el ano 2016?";-88, -99;numeric;;si;rrhh
+367;p.10.8.3;"¿Que porcentaje de Personal no jerarquico de la
+ empresa recibio cursos de formacion durante el ano
+ 2016?";-88, -99;numeric;;si;rrhh
+368;p.10.9.1;"Cursos Realizados: Metodos de gestion de empresas,
+ organizacion, direccion";;categorica;;si;rrhh
+369;p.10.9.2;Cursos Realizados: Planeamiento estrategico;;categorica;;si;rrhh
+370;p.10.9.3;"Cursos Realizados: Conduccion y coordinacion de
+ personal";;categorica;;si;rrhh
+371;p.10.9.4;"Cursos Realizados: Metodos de aseguramiento de la
+ calidad";;categorica;;si;rrhh
+372;p.10.9.5;"Cursos Realizados: Actualizacion vinculada al uso de
+ herramientas, insumos, maquinarias, productos";;categorica;;si;rrhh
+373;p.10.9.6;Cursos Realizados: Actualizacion vinculada a los procedimientos;;categorica;;si;rrhh
+374;p.10.9.7;Cursos Realizados: Actualizacion cientifico/ tecnico;;categorica;;si;rrhh
+375;p.10.9.8;"Cursos Realizados: Gestion comercial, marketing,
+ ventas, distribucion y logistica";;categorica;;si;rrhh
+376;p.10.9.9;"Cursos Realizados: Tecnicas de administracion,
+ control de stock, finanza";;categorica;;si;rrhh
+377;p.10.9.10;Cursos Realizados: Idioma extranjero;;categorica;;si;rrhh
+378;p.10.9.11;"Cursos Realizados: Higiene y seguridad en el trabajo,
+ ambiental";;categorica;;si;rrhh
+379;p.10.9.12;"Cursos Realizados: Informatica, sistemas,
+ computacion";;categorica;;si;rrhh
+380;p.10.9.13;"Cursos Realizados: Mantenimiento correctivo/
+ preventivo";;categorica;;si;rrhh
+381;p.10.9.14;"Cursos Realizados: Competencias basicas en
+ comunicacion";;categorica;;si;rrhh
+382;p.10.9.15;Cursos Realizados: Atencion al publico;;categorica;;si;rrhh
+383;p.10.9.16;Cursos Realizados: Otros;;categorica;;si;rrhh
+384;p.10.9.16.otros;Cursos Realizados: Otros (especificar);;categorica;;si;rrhh
+385;p.10.10.1;"Capacitacion Limitantes: La razon mas importante
+ que limito las actividades de capacitacion de la
+ empresa";;categorica;;si;rrhh
+386;p.10.10.2;"Capacitacion Limitantes: la 2a razon mas importante
+ que limito las actividades de capacitacion de la
+ empresa";;categorica;;si;rrhh
+387;p.10.11.1;"NO Capacitacion: La razon mas importantes por la
+ que la empresa no desarrollo actividades de
+ capacitacion para su personal";;categorica;;si;rrhh
+388;p.10.11.2;"NO Capacitacion: La 2a razon mas importantes por la
+ que la empresa no desarrollo actividades de
+ capacitacion para su personal";;categorica;;si;rrhh
+389;p.10.12.1;"Politica Capacitacion: Practicas de empleo/ formacion
+ o pasantias para jovenes";;categorica;;si;rrhh
+390;p.10.12.2;"Politica Capacitacion: Programa de Insercion Laboral
+ del MTEySS";;categorica;;si;rrhh
+391;p.10.12.3;"Politica Capacitacion: Acciones de Entrenamiento
+ para el Trabajo del MTEySS";;categorica;;si;rrhh
+392;p.10.12.4;"Politica Capacitacion: Cursos de Formacion
+ Profesional del MTEySS";;categorica;;si;rrhh
+393;p.10.12.5;"Politica Capacitacion: Prevencion de Riesgos del
+ Trabajo del MTEySS";;categorica;;si;rrhh
+394;p.10.12.6;Politica Capacitacion: PROEMPLEAR;;categorica;;si;rrhh
+395;p.10.12.7;"Politica Capacitacion: Programa de Capacitacion de
+ Pyme";;categorica;;si;rrhh
+396;p.10.12.8;Politica Capacitacion: Regimen de Credito Fiscal;;categorica;;si;rrhh
+397;p.10.12.9;"Politica Capacitacion: Capacitacion brindada por los
+ sindicatos";;categorica;;si;rrhh
+398;p.10.12.10;Politica Capacitacion: Otra Politica;;categorica;;si;rrhh
+399;p.10.12.10.otros;Politica Capacitacion: Otras (especifique);;categorica;;si;rrhh
+400;p.10.13;¿Estaria dispuesta la empresa a aceptar jovenes (hasta 25 anos) en su establecimiento para la realizacion de practicas de empleo / formacion, con apoyo financiero por parte del Estado nacional?;;categorica;;si;rrhh
+401;p.10.14;"¿Estaria dispuesta la empresa en incorporar
+ profesionales con estudios de Doctorado o realizando
+ sus estudios de doctorado (doctorando) con apoyo
+ financiero por parte del Estado nacional?";;categorica;;si;rrhh
+402;p.10.15.a;"Organiz. del trabajo: Rotar en puestos de complejidad
+ similar";;categorica;;si;rrhh
+403;p.10.15.b;"Organiz. del trabajo: Rotar en funciones diferente
+ complejidad";;categorica;;si;rrhh
+404;p.10.15.c;Organiz. del trabajo: Rotar entre diferentes areas;;categorica;;si;rrhh
+405;p.10.15.3;"Resolver problemas: ¿cual es el comportamiento mas
+ frecuente de los trabajadores no jerarquicos?";;categorica;;si;rrhh
+406;p.10.15.3.otros;"Resolver problemas: Otro comportamiento frecuente
+ (especificar)";;categorica;;si;rrhh
+407;p.10.15.4.1;"Actividad Grupal: Los empleados planifican
+ colectivamente el trabajo diario/semanal";;categorica;;si;rrhh
+408;p.10.15.4.2;"Actividad Grupal: Los empleados acuerdan la
+ distribucion de tareas dentro del equipo";;categorica;;si;rrhh
+409;p.10.15.4.3;"Actividad Grupal: Los empleados evaluan su
+ efectividad en el desarrollo de las actividades";;categorica;;si;rrhh
+410;p.10.15.4.4;"Actividad Grupal: Los empleados planifican
+ colectivamente actividades orientadas a mejorar su
+ efectividad en el futuro";;categorica;;si;rrhh
+411;p.10.15.4.5;"Actividad Grupal: Los empleados implementan las
+ actividades de mejora acordadas";;categorica;;si;rrhh
+412;p.10.16.1;"En los ultimos tres anos (2014-2016), ¿Requirio Mas,
+ Menos o igual cantidad de trabajadores con
+ Calificacion tecnica o profesional?";;categorica;;si;rrhh
+413;p.10.16.2;"En los ultimos tres anos (2014-2016), ¿Requirio Mas,
+ Menos o igual cantidad de trabajadores con
+ Calificacion operativa?";;categorica;;si;rrhh
+414;p.10.16.3;"En los ultimos tres anos (2014-2016), ¿Requirio Mas,
+ Menos o igual cantidad de trabajadores No
+ calificados?";;categorica;;si;rrhh
+415;p.10.17.1;"Reconvirtio el personal existente (a traves de la
+ capacitacion)";;categorica;;si;rrhh
+416;p.10.17.2;"Ingreso nuevo personal con las calificaciones
+ requeridas";;categorica;;si;rrhh
+417;p.10.17.3;"Ingreso nuevo personal y los capacito, (los perfiles
+ demandados no se encuentran en el mercado)";;categorica;;si;rrhh
+418;p.10.17.4;"Reemplazo trabajadores antiguos por trabajadores
+ nuevos";;categorica;;si;rrhh
+419;p.10.17.5;"No logro incorporar nuevo personal porque no
+ encontro los perfiles requeridos en el mercado";;categorica;;si;rrhh
+420;p.10.18.1;"¿Considera que en los ultimos 3 anos ha tenido
+ dificultades para cubrir algun puesto de trabajo?";;categorica;;si;rrhh
+421;p.10.18.2;¿Que puesto/ ocupacion?;;categorica;;si;rrhh
+422;p.10.19.1;"¿Considera que en los ultimos 3 anos han
+ desaparecido en su empresa algunas ocupaciones u
+ oficios?";;categorica;;si;rrhh
+423;p.10.19.2;¿Que oficio/ ocupacion?;;categorica;;si;rrhh
+424;p.10.20.1;"¿Considera que en los ultimos 3 anos han
+ incorporado ocupaciones u oficios nuevos para su
+ empresa?";;categorica;;si;rrhh
+425;p.10.20.2;¿Que oficio/ ocupacion?;;categorica;;si;rrhh
+426;p.11.1.1;Codificar: No existen formas de hacer establecidas por la empresa. Con el tiempo cada empleado establece sus propios procedimientos;;categorica;;si;conocimiento
+427;p.11.1.2;"Codificar: Las actividades criticas de la empresa se
+ encuentran especificadas (documentadas) en
+ manuales de procedimientos";;categorica;;si;conocimiento
+428;p.11.1.3;"Codificar: Las actividades criticas se desarrollan
+ consultando un manual o un documento especifico,
+ hasta que los trabajadores lo aprenden";;categorica;;si;conocimiento
+429;p.11.1.4;"Codificar: Se realizan esfuerzos permanentes para
+ especificar por escrito (documentar) la forma de
+ realizar determinadas actividades y sus cambios";;categorica;;si;conocimiento
+430;p.11.2.1;"Identificar: Existe informacion sobre expertos que
+ pueden ser contactados para consultas (numeros de
+ telefonicos, correo electronicos, sitios web)";;categorica;;si;conocimiento
+431;p.11.2.2;"Identificar: Se cuenta con una biblioteca que contiene
+ documentos, manuales, publicaciones, etc.,
+ relevantes para las actividades de la empresa";;categorica;;si;conocimiento
+432;p.11.2.3;"Identificar: Se dispone de bases de conocimientos que
+ contienen experiencias para ser usadas con
+ posterioridad";;categorica;;si;conocimiento
+433;p.11.3.1;"Generar y utilizar: Se estimula a los empleados, a
+ traves de la introduccion de desafios, a generar
+ conocimientos para el desarrollo de nuevos disenos o
+ productos o mejores maneras de hacer las cosas";;categorica;;si;conocimiento
+434;p.11.3.2;"Generar y utilizar: Se impulsa a competir a diferentes
+ equipos en el desarrollo de un nuevo producto o
+ proyecto";;categorica;;si;conocimiento
+435;p.11.3.3;"Generar y utilizar: Es frecuente que se reestructure
+ y/o modifique la organizacion de la empresa para
+ adaptarse a diferentes proyectos";;categorica;;si;conocimiento
+436;p.11.3.4;"Generar y utilizar: Se fomenta el desarrollo de
+ reuniones de trabajo para analizar y proponer nuevas
+ formas de hacer las cosas";;categorica;;si;conocimiento
+437;p.11.3.5;"Generar y utilizar: Se utiliza la informacion
+ procedente de sugerencias y quejas de clientes y
+ proveedores";;categorica;;si;conocimiento
+438;p.11.4.1;"Distribuir y compartir: Se elaboran periodicamente
+ informes escritos que se reparten a todo el personal
+ informando de los avances de la empresa";;categorica;;si;conocimiento
+439;p.11.4.2;"Distribuir y compartir: Existen en la empresa
+ empleados que participan en varios equipos y actuan
+ como enlaces";;categorica;;si;conocimiento
+440;p.11.4.3;"Distribuir y compartir: Se dispone de mecanismos que
+ garantizan que las mejores practicas sean
+ compartidas entre las distintas areas de la empresa";;categorica;;si;conocimiento
+441;p.12.1.1;"Medio Ambiente: Sustituyo materias primas y
+ materiales contaminantes";;categorica;;si;medio ambiente
+442;p.12.1.2;"Medio Ambiente: Mejoras en la eficiencia del uso del
+ agua, insumos y energia";;categorica;;si;medio ambiente
+443;p.12.1.3;"Medio Ambiente: Reemplazo / Mejoro procesos
+ contaminantes";;categorica;;si;medio ambiente
+444;p.12.1.4;"Medio Ambiente: Genero bioenergia a partir de
+ efluentes/residuos propios";;categorica;;si;medio ambiente
+445;p.12.1.5;Medio Ambiente: Genero fertilizantes a partir de efluentes/residuos propios;;categorica;;si;medio ambiente
+446;p.12.1.6;"Medio Ambiente: Genero subproductos con valor
+ agregado a partir de los residuos";;categorica;;si;medio ambiente
+447;p.12.1.7;"Medio Ambiente: Fabrico productos mas amigables
+ con el medioambiente";;categorica;;si;medio ambiente
+448;p.12.1.8;"Medio Ambiente: Adquirio / adapto equipos e
+ instalaciones para la prevencion/tratamiento de la
+ contaminacion";;categorica;;si;medio ambiente
+449;p.12.1.9;Medio Ambiente: Otros;;categorica;;si;medio ambiente
+450;p.12.1.9.otros;Medio Ambiente: Otros (especifique);;categorica;;si;medio ambiente
+451;p.12.2.1;"Emisiones al aire (Por ejemplo: reduccion de la
+ contaminacion del aire y de olores, tratamiento,
+ eliminacion, medicion, entre otros.)";;categorica;;si;medio ambiente
+452;p.12.2.2;"Aguas residuales (Por ejemplo: prevencion,
+ reduccion, contaminacion termica, reduccion y
+ reutilizacion del agua, almacenamiento, transporte,
+ tratamiento, medicion, etc.)";;categorica;;si;medio ambiente
+453;p.12.2.3;"Residuos (Por ejemplo: reutilizacion de materiales,
+ reduccion materias primas y materiales para
+ disminuir los residuos, almacenamiento, transporte,
+ tratamiento, compactacion, etc.)";;categorica;;si;medio ambiente
+454;p.12.2.4;Otros;;categorica;;si;medio ambiente
+455;p.12.2.4.otros;Especifique;;categorica;;si;medio ambiente
+456;p.12.3.1;"Mejorar la imagen ambiental / Conciencia ambiental
+ de la empresa";;categorica;;si;medio ambiente
+457;p.12.3.2;"Regulaciones ambientales / Obtener certificaciones
+ ambientales";;categorica;;si;medio ambiente
+458;p.12.3.3;Exigencias del mercado local / externos;;categorica;;si;medio ambiente
+459;p.12.3.4;"Satisfacer reclamos medioambientales de la
+ comunidad local";;categorica;;si;medio ambiente
+460;p.12.3.5;Exigencias de fuentes de financiamiento;;categorica;;si;medio ambiente
+461;p.12.3.6;Otros;;categorica;;si;medio ambiente
+462;p.12.3.6.otros;Especifique;;categorica;;si;medio ambiente
+463;ingr_total_2014;Total ingresos 2014;-99;numeric;;si;facturacion
+464;ingr_total_2015;Total ingresos 2015;-99;numeric;;si;facturacion
+465;ingr_total_2016;Total ingresos 2016;-99;numeric;;si;facturacion
+466;egr_total_2014;Total egresos 2014;-99;numeric;;si;facturacion
+467;egr_total_2015;Total egresos 2015;-99;numeric;;si;facturacion
+468;egr_total_2016;Total egresos 2016;-99;numeric;;si;facturacion
+469;prop_ingr_nocorr_2014;"2.2_Proporcion de ingresos no corrientes sobre
+ ingresos totales 2014";-99;numeric;;si;facturacion
+470;prop_ingr_nocorr_2015;"2.2_Proporcion de ingresos no corrientes sobre
+ ingresos totales 2015";-99;numeric;;si;facturacion
+471;prop_ingr_nocorr_2016;"2.2_Proporcion de ingresos no corrientes sobre
+ ingresos totales 2016";-99;numeric;;si;facturacion
+472;prop_egr_sueldo_2014;2.4_Proporcion de sueldos sobre egresos totales 2014;-99;numeric;;si;facturacion
+473;prop_egr_sueldo_2015;2.4_Proporcion de sueldos sobre egresos totales 2015;-99;numeric;;si;facturacion
+474;prop_egr_sueldo_2016;2.4_Proporcion de sueldos sobre egresos totales 2016;-99;numeric;;si;facturacion
+475;prop_otr_egr_corr_2014;"2.4_Proporcion de otros egresos corrientes sobre
+ egresos totales 2014";-99;numeric;;si;facturacion
+476;prop_otr_egr_corr_2015;"2.4_Proporcion de otros egresos corrientes sobre
+ egresos totales 2015";-99;numeric;;si;facturacion
+477;prop_otr_egr_corr_2016;2.4_Proporcion de otros egresos corrientes sobre egresos totales 2016;-99;numeric;;si;facturacion
+478;prop_egr_nocorr_2014;"2.5_Proporcion de otros egresos no corrientes sobre
+ egresos totales 2014";-99;numeric;;si;facturacion
+479;prop_egr_nocorr_2015;"2.5_Proporcion de otros egresos no corrientes sobre
+ egresos totales 2015";-99;numeric;;si;facturacion
+480;prop_egr_nocorr_2016;"2.5_Proporcion de otros egresos no corrientes sobre
+ egresos totales 2016";-99;numeric;;si;facturacion
+481;prop_ingr_corr_2014;"2.6_Proporcion de ingresos corrientes sobre ingresos
+ totales 2014";-99;numeric;;si;facturacion
+482;prop_ingr_corr_2015;"2.6_Proporcion de ingresos corrientes sobre ingresos
+ totales 2015";-99;numeric;;si;facturacion
+483;prop_ingr_corr_2016;"2.6_Proporcion de ingresos corrientes sobre ingresos
+ totales 2016";-99;numeric;;si;facturacion
+484;cant_nivtotal_2014;3.1_Dotacion total 2014;-99;numeric;;si;personal
+485;cant_nivtotal_2015;3.1_Dotacion total 2015;-99;numeric;;si;personal
+486;cant_nivtotal_2016;3.1_Dotacion total 2016;-99;numeric;;si;personal
+487;cant_nivtotal_mujer;3.1_Cant_NivTotal_MUJER_2016;-99;numeric;;si;personal
+488;prop_nivgeren_2014;"3.1_Proporcion personal nivel gerencial sobre
+ dotacion total 2014";-99;numeric;;si;personal
+489;prop_nivgeren_2015;"3.1_Proporcion personal nivel gerencial sobre
+ dotacion total 2015";-99;numeric;;si;personal
+490;prop_nivgeren_2016;"3.1_Proporcion personal nivel gerencial sobre
+ dotacion total 2016";-99;numeric;;si;personal
+491;prop_nivjefe_2014;"3.1_Proporcion personal de jefatura sobre dotacion
+ total 2014";-99;numeric;;si;personal
+492;prop_nivjefe_2015;"3.1_Proporcion personal de jefatura sobre dotacion
+ total 2015";-99;numeric;;si;personal
+493;prop_nivjefe_2016;"3.1_Proporcion personal de jefatura sobre dotacion
+ total 2016";-99;numeric;;si;personal
+494;prop_nivnojerar_2014;"3.1_Proporcion personal no jerarquico sobre dotacion
+ total 2014";-99;numeric;;si;personal
+495;prop_nivnojerar_2015;"3.1_Proporcion personal no jerarquico sobre dotacion
+ total 2015";-99;numeric;;si;personal
+496;prop_nivnojerar_2016;"3.1_Proporcion personal no jerarquico sobre dotacion
+ total 2016";-99;numeric;;si;personal
+497;prop_geren_mujer;"3.1_Proporcion personal gerencial mujer sobre
+ gerencial total 2016";-99;numeric;;si;personal
+498;prop_jefe_mujer;"3.1_Proporcion personal de jefatura mujer sobre
+ personal de jefatura total 2016";-99;numeric;;si;personal
+499;prop_nojerar_mujer;"3.1_Proporcion personal no jerarquico mujer sobre
+ no jerarquico total 2016";-99;numeric;;si;personal
+500;prop_mujer_tot_2016;"3.1_Proporcion personal femenino sobre dotacion
+ total 2016";-99;numeric;;si;personal
+501;prop_calprof_2014;"3.2_Proporcion personal profesional sobre calificados
+ total 2014";-99;numeric;;si;personal
+502;prop_calprof_2015;"3.2_Proporcion personal profesional sobre calificados
+ total 2015";-99;numeric;;si;personal
+503;prop_calprof_2016;"3.2_Proporcion personal profesional sobre calificados
+ total 2016";-99;numeric;;si;personal
+504;prop_caltec_2014;"3.2_Proporcion personal tecnico sobre calificados
+ total 2014";-99;numeric;;si;personal
+505;prop_caltec_2015;"3.2_Proporcion personal tecnico sobre calificados
+ total 2015";-99;numeric;;si;personal
+506;prop_caltec_2016;3.2_Proporcion personal tecnico sobre calificados total 2016;-99;numeric;;si;personal
+507;prop_calopecal_2014;"3.2_Proporcion personal operativo sobre calificados
+ total 2014";-99;numeric;;si;personal
+508;prop_calopecal_2015;"3.2_Proporcion personal operativo sobre calificados
+ total 2015";-99;numeric;;si;personal
+509;prop_calopecal_2016;"3.2_Proporcion personal operativo sobre calificados
+ total 2016";-99;numeric;;si;personal
+510;prop_calopenocal_2014;"3.2_Proporcion personal operativo no calificado sobre
+ calificados total 2014";-99;numeric;;si;personal
+511;prop_calopenocal_2015;"3.2_Proporcion personal operativo no calificado sobre
+ calificados total 2015";-99;numeric;;si;personal
+512;prop_calopenocal_2016;"3.2_Proporcion personal operativo no calificado sobre
+ calificados total 2016";-99;numeric;;si;personal
+513;prop_calprof_mujer;"3.2_Proporcion personal profesional mujer sobre
+ profesional total 2016";-99;numeric;;si;personal
+514;prop_caltec_mujer;"3.2_Proporcion personal tecnico mujer sobre tecnico
+ total 2016";-99;numeric;;si;personal
+515;prop_calopecal_mujer;"3.2_Proporcion personal operativo mujer sobre
+ operativo total 2016";-99;numeric;;si;personal
+516;prop_calopenocal_mujer;"3.2_Proporcion personal operativo no calificado
+ mujer sobre operativo no calificado total 2016";-99;numeric;;si;personal
+517;rem_nivgeren_2014;3.3_Rem_NivGeren_2014;-99;numeric;;si;personal
+518;rem_nivjefe_2014;3.3_Rem_NivJefe_2014;-99;numeric;;si;personal
+519;rem_nivnojerar_2014;3.3_Rem_NivNoJerar_2014;-99;numeric;;si;personal
+520;rem_nivgeren_2015;3.3_Rem_NivGeren_2015;-99;numeric;;si;personal
+521;rem_nivjefe_2015;3.3_Rem_NivJefe_2015;-99;numeric;;si;personal
+522;rem_nivnojerar_2015;3.3_Rem_NivNoJerar_2015;-99;numeric;;si;personal
+523;rem_nivgeren_2016;3.3_Rem_NivGeren_2016;-99;numeric;;si;personal
+524;rem_nivjefe_2016;3.3_Rem_NivJefe_2016;-99;numeric;;si;personal
+525;rem_nivnojerar_2016;3.3_Rem_NivNoJerar_2016;-99;numeric;;si;personal
+526;rem_nivgeren_mujer;3.3_Rem_NivGeren_MUJER_2016;-99;numeric;;si;personal
+527;rem_nivjefe_mujer;3.3_Rem_NivJefe_MUJER_2016;-99;numeric;;si;personal
+528;rem_nivnojerar_mujer;3.3_Rem_NivNoJerar_MUJER_2016;-99;numeric;;si;personal
+529;contmodparcial_2014;"3.5. Tuvo trabajadores contratados bajo la modalidad
+ jornada parcial en 2014";;categorica;;si;educacion
+530;contmodparcial_2015;"3.5. Tuvo trabajadores contratados bajo la modalidad
+ jornada parcial en 2015";;categorica;;si;educacion
+531;contmodparcial_2016;"3.5. Tuvo trabajadores contratados bajo la modalidad
+ jornada parcial en 2016";;categorica;;si;educacion
+532;prop_eduexa_2014;"3.5_Proporcion personal con formacion universitaria
+ en cs. exactas sobre universitario total 2014";-99;numeric;;si;educacion
+533;prop_eduexa_2015;"3.5_Proporcion personal con formacion universitaria
+ en cs. exactas sobre universitario total 2015";-99;numeric;;si;educacion
+534;prop_eduexa_2016;"3.5_Proporcion personal con formacion universitaria
+ en cs. exactas sobre universitario total 2016";-99;numeric;;si;educacion
+535;prop_edusis_2014;"3.5_Proporcion personal con formacion universitaria
+ en sistemas sobre universitario total 2014";-99;numeric;;si;educacion
+536;prop_edusis_2015;"3.5_Proporcion personal con formacion universitaria
+ en sistemas sobre universitario total 2015";-99;numeric;;si;educacion
+537;prop_edusis_2016;"3.5_Proporcion personal con formacion universitaria
+ en sistemas sobre universitario total 2016";-99;numeric;;si;educacion
+538;prop_eduing_2014;3.5_Proporcion personal con formacion universitaria en ingenieria sobre universitario total 2014;-99;numeric;;si;educacion
+539;prop_eduing_2015;"3.5_Proporcion personal con formacion universitaria
+ en ingenieria sobre universitario total 2015";-99;numeric;;si;educacion
+540;prop_eduing_2016;"3.5_Proporcion personal con formacion universitaria
+ en ingenieria sobre universitario total 2016";-99;numeric;;si;educacion
+541;prop_edusoc_2014;"3.5_Proporcion personal con formacion universitaria
+ en cs. sociales sobre universitario total 2014";-99;numeric;;si;educacion
+542;prop_edusoc_2015;"3.5_Proporcion personal con formacion universitaria
+ en cs. sociales sobre universitario total 2015";-99;numeric;;si;educacion
+543;prop_edusoc_2016;"3.5_Proporcion personal con formacion universitaria
+ en cs. sociales sobre universitario total 2016";-99;numeric;;si;educacion
+544;prop_edumed_2014;"3.5_Proporcion personal con formacion universitaria
+ en cs. medicas sobre universitario total 2014";-99;numeric;;si;educacion
+545;prop_edumed_2015;"3.5_Proporcion personal con formacion universitaria
+ en cs. medicas sobre universitario total 2015";-99;numeric;;si;educacion
+546;prop_edumed_2016;"3.5_Proporcion personal con formacion universitaria
+ en cs. medicas sobre universitario total 2016";-99;numeric;;si;educacion
+547;prop_eduotras_2014;"3.5_Proporcion personal con otra formacion
+ universitaria sobre universitario total 2014";-99;numeric;;si;educacion
+548;prop_eduotras_2015;"3.5_Proporcion personal con otra formacion
+ universitaria sobre universitario total 2015";-99;numeric;;si;educacion
+549;prop_eduotras_2016;"3.5_Proporcion personal con otra formacion
+ universitaria sobre universitario total 2016";-99;numeric;;si;educacion
+550;prop_eduexa_mujer;"3.5_Proporcion personal mujer con formacion
+ universitaria en cs. exactas sobre universitario en
+ cs.exactas total 2016";-99;numeric;;si;educacion
+551;prop_edusis_mujer;"3.5_Proporcion personal mujer con formacion
+ universitaria en sistemas sobre universitario en
+ sistmeas total 2016";-99;numeric;;si;educacion
+552;prop_eduing_mujer;"3.5_Proporcion personal mujer con formacion
+ universitaria en ingenieria sobre universitario en
+ ingenieria total 2016";-99;numeric;;si;educacion
+553;prop_edusoc_mujer;"3.5_Proporcion personal mujer con formacion
+ universitaria en cs. sociales sobre universitario en
+ cs.sociales total 2016";-99;numeric;;si;educacion
+554;prop_edumed_mujer;"3.5_Proporcion personal mujer con formacion
+ universitaria en cs. medicas sobre universitario en cs.
+ medicas total 2016";-99;numeric;;si;educacion
+555;prop_eduotras_mujer;"3.5_Proporcion personal mujer con otra formacion
+ universitaria sobre otros universitarios total 2016";-99;numeric;;si;educacion
+556;cant_edutotal_2014;3.6_Cant_EduTotal_2014;-99;numeric;;si;educacion
+557;cant_edutotal_2015;3.6_Cant_EduTotal_2015;-99;numeric;;si;educacion
+558;cant_edutotal_2016;3.6_Cant_EduTotal_2016;-99;numeric;;si;educacion
+559;cant_edutotal_mujer;3.6_Cant_EduTotal_Mujer_2016;-99;numeric;;si;educacion
+560;toma_decision;4.1_Toma_Decision;;categorica;;si;tomador decisiones
+561;toma_decision_esp;4.1_Toma_Decision_Esp;;categorica;;si;tomador decisiones
+562;tr_edad;4.2 Edad en tramos del tomador de decision;-99;categorica;;si;tomador decisiones
+563;sexo;4.3.Sexo;;categorica;;si;tomador decisiones
+564;antig;4.4.Antiguedad en la Empresas;;categorica;;si;tomador decisiones
+565;exper;4.5.Experiencia laboral en areas de Investigacion;;categorica;;si;tomador decisiones
+566;nivel_educativo;4.6.Niveles de educacion formal alcanzado/ finalizado;;categorica;;si;tomador decisiones
+567;univ_area;4.7.Univ_Area;;categorica;;si;tomador decisiones
+568;univ_area_esp;4.7.Univ_Area_ESP;;categorica;;si;tomador decisiones
+569;inno_idint;5.1.1. Investigacion y desarrollo interna;;categorica;;si;ai
+570;inno_idext;5.1.2. Subcontratacion de I+D;;categorica;;si;ai
+571;inno_dindus;5.1.3. Diseno industrial e ingenieria;;categorica;;si;ai
+572;inno_maq;5.1.4. Adquisicion de maquinaria y equipos;;categorica;;si;ai
+573;inno_hwsw;"5.1.5. Adquisicion de hardware y software para
+ innovacion";;categorica;;si;ai
+574;inno_tec;5.1.6. Transferencia tecnologica;;categorica;;si;ai
+575;inno_capac;"5.1.7. Capacitacion para la introduccion de
+ innovaciones";;categorica;;si;ai
+576;inno_consul;5.1.8. Consultorias;;categorica;;si;ai
+577;prop_idint_2014;"5.1.1_Proporcion de gastos en I+D interna sobre
+ gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+578;prop_idint_2015;"5.1.1_Proporcion de gastos en I+D interna sobre
+ gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+579;prop_idint_2016;"5.1.1_Proporcion de gastos en I+D interna sobre
+ gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+580;prop_idext_2014;"5.1.2_Proporcion de gastos en I+D externa sobre
+ gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+581;prop_idext_2015;"5.1.2_Proporcion de gastos en I+D externa sobre
+ gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+582;prop_idext_2016;"5.1.2_Proporcion de gastos en I+D externa sobre
+ gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+583;prop_dindus_2014;"5.1.3_Proporcion de gastos en diseno industrial e
+ ingenieria sobre gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+584;prop_dindus_2015;"5.1.3_Proporcion de gastos en diseno industrial e
+ ingenieria sobre gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+585;prop_dindus_2016;"5.1.3_Proporcion de gastos en diseno industrial e
+ ingenieria sobre gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+586;prop_maq_2014;"5.1.4_Proporcion de gastos en maquinaria y equipos
+ sobre gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+587;prop_maq_2015;"5.1.4_Proporcion de gastos en maquinaria y equipos
+ sobre gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+588;prop_maq_2016;"5.1.4_Proporcion de gastos en maquinaria y equipos
+ sobre gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+589;prop_hwsw_2014;"5.1.5_Proporcion de gastos en adquisicion de
+ hardware y software sobre gastos en innovacion total
+ 2014";-77, -88, -99;numeric;;si;ai
+590;prop_hwsw_2015;"5.1.5_Proporcion de gastos en adquisicion de
+ hardware y software sobre gastos en innovacion total
+ 2015";-77, -88, -99;numeric;;si;ai
+591;prop_hwsw_2016;"5.1.5_Proporcion de gastos en adquisicion de
+ hardware y software sobre gastos en innovacion total
+ 2016";-77, -88, -99;numeric;;si;ai
+592;prop_tec_2014;"5.1.6_Proporcion de gastos en transferencia
+ tecnologica sobre gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+593;prop_tec_2015;"5.1.6_Proporcion de gastos en transferencia
+ tecnologica sobre gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+594;prop_tec_2016;"5.1.6_Proporcion de gastos en transferencia
+ tecnologica sobre gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+595;prop_capac_2014;"5.1.7_Proporcion de gastos en capacitacion sobre
+ gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+596;prop_capac_2015;"5.1.7_Proporcion de gastos en capacitacion sobre
+ gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+597;prop_capac_2016;5.1.7_Proporcion de gastos en capacitacion sobre gastos en innovacion total 2016;-77, -88, -99;numeric;;si;ai
+598;prop_consul_2014;"5.1.8_Proporcion de gastos en consultorias sobre
+ gastos en innovacion total 2014";-77, -88, -99;numeric;;si;ai
+599;prop_consul_2015;"5.1.8_Proporcion de gastos en consultorias sobre
+ gastos en innovacion total 2015";-77, -88, -99;numeric;;si;ai
+600;prop_consul_2016;"5.1.8_Proporcion de gastos en consultorias sobre
+ gastos en innovacion total 2016";-77, -88, -99;numeric;;si;ai
+601;inno_total_2014;5.1.9. Gastos 2014: AI Total;-88, -99;numeric;;si;ai
+602;inno_total_2015;5.1.9. Gastos 2015: AI Total;-88, -99;numeric;;si;ai
+603;inno_total_2016;5.1.9. Gastos 2016: AI Total;-88, -99;numeric;;si;ai
+604;finan_reinversion;6.1.1 Finan AI: Reinversion de utilidades;-88, -99;numeric;;si;ai
+605;finan_socios;"6.1.2 Finan AI: Aportes de socios o empresas del
+ grupo";-88, -99;numeric;;si;ai
+606;finan_matriz;6.1.3 Finan AI: Casa Matriz;-88, -99;numeric;;si;ai
+607;finan_bcopub;6.1.4 Finan AI: Financiamiento Banco Publicos;-88, -99;numeric;;si;ai
+608;finan_bcopriv;6.1.5 Finan AI: Financiamiento Banco Privados;-88, -99;numeric;;si;ai
+609;finan_fontar;"6.1.6 Finan AI: FONTAR - Fondo Tecnologico
+ Argentino (ANPCyT)";-88, -99;numeric;;si;ai
+610;finan_fonarsec;"6.1.7 Finan AI: FONARSEC - Fondo Argentino Sectorial
+ (ANPCyT)";-88, -99;numeric;;si;ai
+611;finan_fonsoft;"6.1.8 Finan AI: FONSOFT - Fondo Fiduciario de
+ Promocion de la Industria del Software (ANPCyT)";-88, -99;numeric;;si;ai
+612;finan_cofecyt;"6.1.9 Finan AI: COFECYT - Consejo Federal de Ciencia
+ y Tecnologia";-88, -99;numeric;;si;ai
+613;finan_exsepyme;"6.1.10 Finan AI: Ex SEPYME - Secretaria Pyme y
+ Desarrollo Regional";-88, -99;numeric;;si;ai
+614;finan_cfi;6.1.11 Finan AI: CFI - Consejo Federal de Inversiones;-88, -99;numeric;;si;ai
+615;finan_progpub;"6.1.12 Finan AI: Financiamiento de otros Programas
+ Publicos";-88, -99;numeric;;si;ai
+616;finan_mercado;6.1.13 Finan AI: Via el mercado de capitales;-88, -99;numeric;;si;ai
+617;finan_proveed;6.1.14 Finan AI: Proveedores;-88, -99;numeric;;si;ai
+618;finan_clientes;6.1.15 Finan AI: Clientes;-88, -99;numeric;;si;ai
+619;finan_otras;6.1.16 Finan AI: Otras fuentes;-88, -99;numeric;;si;ai
+620;finan_otras_esp;6.1.16.otros Finan AI: Otras fuentes (especifique);;numeric;;si;ai
+621;cant_compus;"7.1 Tecno: ¿Cuantas computadoras tiene su
+ empresa?";-99;numeric;;si;tecnologia
+622;emple_compus;"7.2 Tecno: ¿Que proporcion de los empleados usa
+ habitualmente una computadora en el trabajo?";;numeric;;si;tecnologia
+623;internet;"7.3 Tecno: En su empresa ¿cuentan con conexion a
+ Internet?";;categorica;;si;tecnologia
+624;web_tiene;7.4.1 Tecno: ¿La empresa posee un sitio Web?;;categorica;;si;tecnologia
+625;internet_correo;"7.5.1 Tecno: Utilizo Internet - Envio o recepcion de
+ correo electronico";;categorica;;si;tecnologia
+626;internet_fonoip;"7.5.2 Tecno: Utilizo Internet - Llamadas telefonicas a
+ traves del Protocolo de Internet";;categorica;;si;tecnologia
+627;internet_pubinfo;"7.5.3 Tecno: Utilizo Internet - Publicacion de
+ informacion o de mensajes instantaneos";;categorica;;si;tecnologia
+628;internet_obtinfo;"7.5.4 Tecno: Utilizo Internet - Busqueda / Obtencion
+ de informacion sobre bienes o servicios";;categorica;;si;tecnologia
+629;internet_obtgob;"7.5.5 Tecno: Utilizo Internet - Busqueda / Obtencion
+ de informacion sobre org gubernamentales";;categorica;;si;tecnologia
+630;internet_intergob;7.5.6 Tecno: Utilizo Internet - Interaccion con org gubernamentales(ej. pago impuestos, presentaciones fiscales);;categorica;;si;tecnologia
+631;internet_banking;"7.5.7 Tecno: Utilizo Internet - Operaciones bancarias
+ por Internet";;categorica;;si;tecnologia
+632;internet_finan;"7.5.8 Tecno: Utilizo Internet - Acceso a otros servicios
+ financieros";;categorica;;si;tecnologia
+633;internet_servicio;7.5.9 Tecno: Utilizo Internet - Servicio al cliente;;categorica;;si;tecnologia
+634;internet_entrega;"7.5.10 Tecno: Utilizo Internet - Entrega de productos
+ en linea";;categorica;;si;tecnologia
+635;internet_contrata;"7.5.11 Tecno: Utilizo Internet - Contratacion interna o
+ externa";;categorica;;si;tecnologia
+636;internet_capa;"7.5.12 Tecno: Utilizo Internet - Capacitacion del
+ personal";;categorica;;si;tecnologia
+637;internet_otras;7.5.13 Tecno: Utilizo Internet - Otras actividades;;categorica;;si;tecnologia
+638;internet_otras_esp;"7.5.13.otros (especifique) Tecno: Utilizo Internet -
+ Otras actividades (especifique)";;categorica;;si;tecnologia
+639;webcompras;7.6.1 Tecno: % Compras por internet del ano 2016;;categorica;;si;tecnologia
+640;webventas;7.6.2 Tecno: % Ventas por internet del ano 2016;;categorica;;si;tecnologia
+641;cv_propia;7.7.1 Tecno: Ventas electronicas - Plataforma propia;;categorica;;si;tecnologia
+642;cv_clieprov;"7.7.2 Tecno: Ventas electronicas - Plataforma de
+ clientes/proveedores";;categorica;;si;tecnologia
+643;cv_merclibre;"7.7.3 Tecno: Ventas electronicas - MercadoLibre o
+ similares";;categorica;;si;tecnologia
+644;cv_otros;7.7.4 Tecno: Ventas electronicas - Otros metodos;;categorica;;si;tecnologia
+645;cv_otros_esp;"7.7.4.otros Tecno: Ventas electronicas - Otros
+ metodos (especifique)";;categorica;;si;tecnologia
+646;sis_rrhhctablefinan;"7.8.1 Tecno: Sistema de informacion de recursos
+ humanos, contable, financiero";;categorica;;si;tecnologia
+647;sis_log;7.8.2 Tecno: Sistema de logistica;;categorica;;si;tecnologia
+648;sis_abastcomac;"7.8.3 Tecno: Sistema de abastecimiento electronico,
+ comercializacion y/o atencion al cliente";;categorica;;si;tecnologia
+649;sis_diseno;"7.8.4.a Tecno: Sistema aplicados a la produccion -
+ Diseno";;categorica;;si;tecnologia
+650;sis_planifctrl;"7.8.4.b Tecno: Sistema aplicados a la produccion -
+ Planificacion y Control de la produccion";;categorica;;si;tecnologia
+651;sis_estadis;"7.8.4.c Tecno: Sistema aplicados a la produccion -
+ Sistemas de control estadistico de procesos";;categorica;;si;tecnologia
+652;sis_apoyodec;7.8.5 Tecno: Sistema de apoyo a la toma de decision;;categorica;;si;tecnologia
+653;sis_erp;"7.9.1 Tecno: Sistemas de gestion corporativa ERP o
+ ‘enlatados’";;categorica;;si;tecnologia
+654;sis_propio;7.9.2 Tecno: Desarrollos propios o ‘a medida’;;categorica;;si;tecnologia
+655;sis_nube;"7.9.3 Tecno: Utiliza soluciones hospedadas en cloud o
+ data center";;categorica;;si;tecnologia
+656;informatizada;"7.10.1 Tecno: La actividad central o core de la
+ empresa ¿esta informatizada?";;categorica;;si;tecnologia
+657;informatizada_porc;"7.10.2 Tecno: % de dichos procesos estan
+ informatizados";-88, -99;categorica;;si;tecnologia
+658;informatizada_amedida;"7.11 Tecno: Se utilizo un desarrollo propio o a medida
+ para informatizar la actividad central";;categorica;;si;tecnologia
+659;area_sistemas;"7.12 Tecno: Posee un area de Tecnologia de la
+ informacion";;categorica;;si;tecnologia
+660;redessoc;7.13 Tecno: La empresa utiliza Redes Sociales;;categorica;;si;tecnologia
+661;nors_personal;"7.14.1 Tecno: No utiliza redes - Falta de disponibilidad
+ de personal";;categorica;;si;tecnologia
+662;nors_recursos;"7.14.2 Tecno: No utiliza redes - Falta de recursos
+ fisicos y/o economicos";;categorica;;si;tecnologia
+663;nors_conocimiento;"7.14.3 Tecno: No utiliza redes - Falta de conocimiento
+ acerca de redes sociales";;categorica;;si;tecnologia
+664;nors_necesidad;"7.14.4 Tecno: No utiliza redes -No las considera
+ necesarias";;categorica;;si;tecnologia
+665;nors_otros;7.14.5 Tecno: No utiliza redes - Otras razones;;categorica;;si;tecnologia
+666;nors_otros_esp;"7.14.5.otros Tecno: No utiliza redes - Otras razones
+ (especifique)";;categorica;;si;tecnologia
+667;rs_tiene_fb;7.15.1 Tecno: Utiliza redes - Facebook;;categorica;;si;tecnologia
+668;rs_tiene_tw;7.15.2 Tecno: Utiliza redes - Twitter;;categorica;;si;tecnologia
+669;rs_tiene_in;7.15.3 Tecno: Utiliza redes - LinkedIn;;categorica;;si;tecnologia
+670;rs_tiene_yt;7.15.4 Tecno: Utiliza redes - YouTube;;categorica;;si;tecnologia
+671;rs_tiene_otros;7.15.5 Tecno: Utiliza redes - Otras;;categorica;;si;tecnologia
+672;rs_tiene_otros_esp;7.15.5.otros Tecno: Utiliza redes - Otras (especifique);;categorica;;si;tecnologia
+673;rs_objetivo;7.16 Tecno: Utiliza redes -Principal objetivo;;categorica;;si;tecnologia
+674;rs_objetivo_esp;"7.16.otros Tecno: Objetivo uso redes - Otros
+ (especifique)";;categorica;;si;tecnologia
+675;va14;Valor Agregado 2014;-99;numeric;;si;facturacion
+676;va15;Valor Agregado 2015;-99;numeric;;si;facturacion
+677;va16;Valor Agregado 2016;-99;numeric;;si;facturacion
+678;va_tr14;VA por trabajador 2014;-99;numeric;;si;facturacion
+679;va_tr15;VA por trabajador 2015;-99;numeric;;si;facturacion
+680;va_tr16;VA por trabajador 2016;-99;numeric;;si;facturacion
+681;ai_ingr_corr_2014;Gastos de innovacion / ingresos corrientes en 2014;-88, -99;numeric;;si;ai
+682;ai_ingr_corr_2015;Gastos de innovacion / ingresos corrientes en 2015;-88, -99;numeric;;si;ai
+683;ai_ingr_corr_2016;Gastos de innovacion / ingresos corrientes en 2016;-88, -99;numeric;;si;ai
+684;var_et_1415;Variacion del empleo 2014-2015;;numeric;;si;personal
+685;var_et_1516;Variacion del empleo 2015-2016;;numeric;;si;personal
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
