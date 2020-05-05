@@ -8,3 +8,9 @@ library(skimr)
 
 library(googlesheets4)
 library(RCurl)
+
+library(factoextra)
+library(clustertend)
+library(clValid)
+library(NbClust)
+

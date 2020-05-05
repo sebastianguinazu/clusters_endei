@@ -4,6 +4,7 @@
 path = getwd()
 source('scripts/libraries.r')
 
+semilla = 123
 
 # Seleccion de variables ----------------------------------------------------------------
 
@@ -20,6 +21,8 @@ var.oup = c('ide_endei_ii','Tam_nue','Rama_act','calif.ocde','exporta', 'exp.hin
             'tc.va.tr', 'tc.empleo','tc.ventas')
 
 # pierdo muchas - revisar NA
+colna = colSums(is.na(endei %>% select(var.inp)))
+
 df.new =  endei %>% 
   select(var.inp) %>% 
   drop_na()
@@ -66,7 +69,7 @@ get_clust_tendency(df.new.sample, n = nrow(df.new.sample)-1,
 
 # hopkins alternativa 2
 set.seed(semilla) 
-clustertend::hopkins(data = df.new.sample, n = nrow(df.new.sample) - 1)
+hopkins(data = df.new.sample, n = nrow(df.new.sample) - 1)
 
 
 # Eleccion de K optimo ------------------------------------------------------------------
@@ -91,7 +94,7 @@ fviz_nbclust(df.new.sample, FUNcluster = kmeans,  method = "gap_stat", k.max=15,
   labs(subtitle = "Gap statistic method") 
 
 # NbClust() function: 30 indices for choosing the best number of clusters
-nb = NbClust(df.new.sample, distance = "manhattan", min.nc = 2,
+nb = NbClust(df.new, distance = "manhattan", min.nc = 2,
              max.nc = 15, method = "kmeans", index="all")
 fviz_nbclust(nb) +
   ggtitle("Numero optimo de clusters - K=2") + 

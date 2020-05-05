@@ -52,9 +52,9 @@ endei = endei %>%
   select(endei_vars$variable)
 
 # exploratorio
-explora = skim_to_list(endei)
-explora$numeric
-explora$factor
+# explora = skim_to_list(endei)
+# explora$numeric
+# explora$factor
 
 
 # Creacion de variables estructurales de las firmas -------------------------------------
@@ -162,7 +162,7 @@ endei = endei %>%
                                     TRUE ~ 0),
          d.diseno = case_when(p.2.8.6 == "Si"  ~ 1,
                                     TRUE ~ 0),         
-         d.gesproydis = case_when(p.2.8.5 == "Si"  ~ 1,
+         d.gesproydis = case_when(p.2.8.7 == "Si"  ~ 1,
                                     TRUE ~ 0),
          dorganiza = case_when((p.2.8.1 == "Si" | p.2.8.2 == "Si" | p.2.8.3 == "Si" | p.2.8.4 == "Si" | p.2.8.5 == "Si"  | p.2.8.6 == "Si" | p.2.8.7 == "Si") ~ 1,
                                    TRUE ~ 0)) %>% 
@@ -197,7 +197,7 @@ endei = endei %>%
 # 11. Porcentaje de personal con calificacion tecnica en el personal total. 
 
 endei = endei %>% 
-  mutate(depto.id = ifelse(p.5.1.6 == 'Si',1,0)) %>% 
+  mutate(depto.id = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0)) %>% 
   rowwise() %>% 
   mutate(
          prop.prof   = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
@@ -272,9 +272,9 @@ endei = endei %>%
 
 # Personal capacitado a nivel jerarquico, supervisores y nivel no-jerarquico (en %)
 endei = endei %>% 
-  mutate(capacit.ger   = p.10.8.1,
-         capacit.sup   = p.10.8.2,
-         capacit.nojer = p.10.8.3) %>%
+  mutate(capacit.ger   = ifelse(!is.na(p.10.8.1), p.10.8.1, 0),
+         capacit.sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
+         capacit.nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
   rowwise() %>% 
   mutate(capacit.jer  = mean(c(capacit.ger, capacit.sup)))
 
