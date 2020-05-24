@@ -1,11 +1,11 @@
 
-# ENDEI II - Creacion del Dataset -------------------------------------------------------
+# ENDEI II - Creacion del Dataset ---------------------------------------------
 
 path = getwd()
 source('scripts/libraries.r')
 
 
-# Read dataset --------------------------------------------------------------------------
+# Read dataset ----------------------------------------------------------------
 
 file = glue(path, '/raw/ENDEI II_anonimizada_Junio_2019.sav')
 
@@ -48,7 +48,7 @@ to_num = endei_vars %>% filter(tipo == 'numeric') %>%
 endei = endei %>% 
   mutate_at(to_num$variable, funs(as.numeric(.))) %>% 
   mutate_at(to_char$variable, funs(as.character(.))) %>%
-  mutate_at(to_char$variable, funs(replace(., . == 'Sí', 'Si'))) %>% 
+  mutate_at(to_char$variable, funs(stri_trans_general(., "Latin-ASCII"))) %>% 
   select(endei_vars$variable)
 
 # exploratorio
@@ -57,7 +57,7 @@ endei = endei %>%
 # explora$factor
 
 
-# Creacion de variables estructurales de las firmas -------------------------------------
+# Creacion de variables estructurales de las firmas ---------------------------
 
 tc.2014 = 3.9124
 tc.2015 = 4.1297
@@ -113,14 +113,14 @@ endei = endei %>%
   mutate(k.inac = ifelse(p.1.8 == 'Con presencia de capital internacional', 1, 0))
 
 # Sectores de actividad
-alta_tecnologia = c('Farmaceuticas', 'Productos químicos', 'Material eléctrico, radio, televisión',
-                    'Instrumentos médicos', 'Otros equipo de transporte')
-media_alta_tecnologia = c('Carrocerías,  remolques y semirremolques', 'Autopartes', 
+alta_tecnologia = c('Farmaceuticas', 'Productos quimicos', 'Material electrico, radio, television',
+                    'Instrumentos medicos', 'Otros equipo de transporte')
+media_alta_tecnologia = c('Carrocerias,  remolques y semirremolques', 'Autopartes', 
                           'Maquina herramienta en general', 'Maquinaria y equipo',
                           'Maquinaria Agropecuaria y Forestal')
-media_baja_tecnologia = c('Otros minerales no metálicos', 'Otros productos de metal', 'Metales comunes',
-                          'Productos de caucho y plástico', 'Aparatos de uso doméstico')
-baja_tecnologia = c('Otras', 'Madera', 'Papel', 'Alimentos', 'Edición', 'Frigoríficos', 'Productos lácteos',
+media_baja_tecnologia = c('Otros minerales no metalicos', 'Otros productos de metal', 'Metales comunes',
+                          'Productos de caucho y plastico', 'Aparatos de uso domestico')
+baja_tecnologia = c('Otras', 'Madera', 'Papel', 'Alimentos', 'Edicion', 'Frigorificos', 'Productos lacteos',
                     'Vinos y otras bebidas fermentadas', 'Productos textiles', 'Confecciones', 'Cuero', 'Muebles')
 
 endei = endei %>% 
@@ -138,7 +138,7 @@ endei = endei %>%
 # esto lo cambiaron, ver de armar variables de financiamiento
 
 
-# a.Capacidad productiva/practicas empresariales ----------------------------------------
+# a.Capacidad productiva/practicas empresariales ------------------------------
 
 # 1.d.especific:
 # 2.d.trazabilidad: 
@@ -149,9 +149,7 @@ endei = endei %>%
 # d.gesproydis:
 # scap.organiza: suma actividades o herramientas que hacen a la capacidad organizativa                                                            #
 
-endei = endei %>% 
-  mutate(dnorm.calidad = case_when((p.2.8.8 == "Si" | p.2.8.9 == "Si")  ~ 1,
-                                    TRUE ~ 0),
+endei = endei %>% mutate(
          d.especific = case_when((p.2.8.1 == "Si")  ~ 1,
                                     TRUE ~ 0),
          d.trazabilidad = case_when(p.2.8.3 == "Si"  ~ 1,
@@ -164,6 +162,8 @@ endei = endei %>%
                                     TRUE ~ 0),         
          d.gesproydis = case_when(p.2.8.7 == "Si"  ~ 1,
                                     TRUE ~ 0),
+         dnorm.calidad = case_when((p.2.8.8 == "Si" | p.2.8.9 == "Si")  ~ 1,
+                                    TRUE ~ 0),
          dorganiza = case_when((p.2.8.1 == "Si" | p.2.8.2 == "Si" | p.2.8.3 == "Si" | p.2.8.4 == "Si" | p.2.8.5 == "Si"  | p.2.8.6 == "Si" | p.2.8.7 == "Si") ~ 1,
                                    TRUE ~ 0)) %>% 
   mutate_at(vars(starts_with("p.2.8.")), funs(case_when(. == "Si"~ 1, TRUE ~ 0))) %>%
@@ -171,16 +171,11 @@ endei = endei %>%
   mutate(scap.organiza = sum(c(p.2.8.1,p.2.8.2,p.2.8.3,p.2.8.4,p.2.8.5,p.2.8.6,p.2.8.7)))
 
 
-# b.Organizacion del trabajo ------------------------------------------------------------
+# b.Organizacion del trabajo --------------------------------------------------
 
 # 7. Implementa una rotacion planificada del personal.
 # 8. Grado de participacion del personal para el desarrollo de actividades
-
-# Participacion del personal (practicas de trabajo)
-endei = endei %>%
-  mutate_at(vars(starts_with("p.10.15.4.")),funs(case_when(. =="Si"~ 1, TRUE ~ 0)))  %>%
-  rowwise() %>%
-  mutate(part.personal = sum(c(p.10.15.4.1,p.10.15.4.2,p.10.15.4.3, p.10.15.4.4, p.10.15.4.5)))
+# 9. Difusion de buenas practicas
 
 # Rotacion personal (planificada)
 endei = endei %>%
@@ -188,16 +183,32 @@ endei = endei %>%
   rowwise() %>%
   mutate(d.rotacion = max(c(p.10.15.a,p.10.15.b,p.10.15.c)))
 
-# 11.3.4, 11.4.3?
+# Participacion del personal (practicas de trabajo)
+endei = endei %>%
+  mutate_at(vars(starts_with("p.10.15.4.")),funs(case_when(. =="Si"~ 1, TRUE ~ 0)))  %>%
+  rowwise() %>%
+  mutate(part.personal = sum(c(p.10.15.4.1,p.10.15.4.2,p.10.15.4.3, p.10.15.4.4, p.10.15.4.5)))
 
-# c.Absorcion acumulada -----------------------------------------------------------------
+# Difusion de buenas practicas
+endei = endei %>% 
+  mutate(difu.bpracticas = case_when(
+    p.11.4.3 %in% c('Refleja Algo', 'Refleja Poco') ~ 1,
+    p.11.4.3 == 'Refleja Bastante' ~ 2,
+    p.11.4.3 == 'Refleja totalmente la situacion de la empresa' ~ 3,
+    TRUE ~ 0
+  ))
 
-# 9. Tiene departamento formal de I+D. Variable binaria.
-# 10. Porcentaje de profesionales en el personal total. 
-# 11. Porcentaje de personal con calificacion tecnica en el personal total. 
+
+# c.Absorcion acumulada -------------------------------------------------------
+
+# 10. Tiene departamento formal de I+D. Variable binaria.
+# 11. Porcentaje de profesionales en el personal total. 
+# 12. Porcentaje de personal con calificacion tecnica en el personal total. 
+# 13. Persona entrenada para manipular grandes bases de datos
 
 endei = endei %>% 
-  mutate(depto.id = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0)) %>% 
+  mutate(depto.id = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
+         d.basedatos = ifelse(p.2.7.7 == 'Si', 1,0)) %>% 
   rowwise() %>% 
   mutate(
          prop.prof   = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
@@ -205,52 +216,49 @@ endei = endei %>%
          prop.ing    = mean(c(prop_eduing_2014,prop_eduing_2015,prop_eduing_2016))
   )
 
-# agregar aca la de base de datos? p.2.7.7
 
-# d.Absorcion potencial/capacidades potenciales  ----------------------------------------
+# d.Absorcion potencial/capacidades potenciales  ------------------------------
 
-# 12. Tiene un area responsable de orgranizar las actividades de capacitacion. Variable binaria.
-# 13. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel jerarquico
-# 14. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel no jerarquico
+# 14. Tiene un area responsable de orgranizar las actividades de capacitacion. Variable binaria.
+# 15. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel jerarquico
+# 16. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel no jerarquico
 
-# scap.func: cantidad de aspectos atendidos por el area responsable de organizar actividades de capacitacion
 # dcap.func: si hay algun area responsable de organizar actividades de capacitacion (captado por si se atiende algun aspecto)
-# dcap.cursos: si atendio alguna temÃ¡tica en los cursos(capta si hizo cursos/ojo: antes esta pregunta de % de personal capacitado)
-# scap.cursos: cantidad de cursos realizados a los empleados                                             
-
 endei = endei %>% 
   mutate(dcap.func = case_when((p.10.5.1 == "Si" | p.10.5.2 == "Si" | p.10.5.3 == "Si" |
-                                  p.10.5.4 == "Si" | p.10.5.5 == "Si"  | p.10.5.6 == "Si" |
-                                  p.10.5.7 == "Si") ~ 1,
-                               TRUE ~ 0),
-         dcap.cursos = case_when((p.10.9.1 == "Si" | p.10.9.2 == "Si" | p.10.9.3 == "Si" |
-                                    p.10.9.4 == "Si" | p.10.9.5 == "Si"  | p.10.9.6 == "Si" |
-                                    p.10.9.7 == "Si" |  p.10.9.8 == "Si" |  p.10.9.9 == "Si"|
-                                    p.10.9.12 == "Si" ) ~ 1, 
-                                 TRUE ~ 0)) %>% 
-  mutate_at(vars(starts_with("p.10.5."),starts_with("p.10.9.")),funs(case_when(. == "Si"~ 1, TRUE ~ 0)))  %>%
-  rowwise() %>%
-  mutate(scap.func = sum(c(p.10.5.1,p.10.5.2,p.10.5.3,p.10.5.4,p.10.5.5,p.10.5.6,p.10.5.7)),
-         scap.cursos = sum(c(p.10.9.1,p.10.9.2,p.10.9.3,p.10.9.4,p.10.9.5,p.10.9.6,p.10.9.7,
-                             p.10.9.8,p.10.9.12)))
+                                p.10.5.4 == "Si" | p.10.5.5 == "Si"  | p.10.5.6 == "Si" |
+                                p.10.5.7 == "Si") ~ 1,
+                                TRUE ~ 0))
+
+# Personal capacitado a nivel jerarquico, supervisores y nivel no-jerarquico (en %)
+endei = endei %>% 
+  mutate(capacit.ger   = ifelse(!is.na(p.10.8.1), p.10.8.1, 0),
+         capacit.sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
+         capacit.nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
+  rowwise() %>% 
+  mutate(capacit.jer  = mean(c(capacit.ger, capacit.sup)))
 
 
-# e.Incentivos --------------------------------------------------------------------------
+# e.Incentivos ----------------------------------------------------------------
 
-# 15.Aplica algun sistema de evaluacion de desempeno para el personal
+# 17. Aplica algun sistema de evaluacion de desempeno para el personal
+# 18. Estimulo a empleados a generar conocimiento
 
 endei = endei %>% 
-  mutate(d.incent  = case_when((p.10.4.1 == "Si" | p.10.4.2 == "Si" | p.10.4.3 == "Si") ~ 1,
-                               TRUE ~ 0))
+  mutate(d.evaldes  = case_when((p.10.4.1 == "Si" | p.10.4.2 == "Si" | p.10.4.3 == "Si") ~ 1,
+                               TRUE ~ 0),
+         d.estimul = case_when(p.11.3.1 %in% c("No refleja la situacion de la empresa","Ns/Nc")  ~ 0,
+                               p.11.3.1 == "Refleja Poco" ~ 1,
+                               p.11.3.1 == "Refleja Algo" ~ 2,
+                               p.11.3.1 == "Refleja Bastante" ~ 3,
+                               p.11.3.1 == "Refleja totalmente la situacion de la empresa" ~ 4)
+         )
 
-# endei$p.7.3.1 -> resistencia de empleados al cambio
-# endei$p.11.3.1
-# endei$p.11.3.4
 
-# f.Vinculaciones  ----------------------------------------------------------------------
+# f.Vinculaciones  ------------------------------------------------------------
 
-# 16. Tiene vinculaciones con otras firmas
-# 17. Tiene vinculaciones con el sector publico
+# 19. Tiene vinculaciones con otras firmas
+# 20. Tiene vinculaciones con el sector publico
 
 # vinculaciones con firmas y con  spub (dummy y suma)
 endei = endei %>% 
@@ -268,28 +276,7 @@ endei = endei %>%
                             p.9.1.f, p.9.2.f, p.9.3.f, p.9.4.f, p.9.5.f, p.9.6.f, p.9.7.f)))
 
 
-# Otras variables   ---------------------------------------------------------------------
-
-# Personal capacitado a nivel jerarquico, supervisores y nivel no-jerarquico (en %)
-endei = endei %>% 
-  mutate(capacit.ger   = ifelse(!is.na(p.10.8.1), p.10.8.1, 0),
-         capacit.sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
-         capacit.nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
-  rowwise() %>% 
-  mutate(capacit.jer  = mean(c(capacit.ger, capacit.sup)))
-
-# Grado de autonomia del personal (respuesta frente a problemas - vble ordinal)
-# 0: no resolver
-# 1: llamar al supervisor
-# 2: resolver y comunicar
-# 3: resolver y documentar
-
-endei = endei %>%
-  filter(!p.10.15.3 %in% c('Ns/Nc', 'Otros.')) %>%
-  mutate(autonom.personal = case_when(p.10.15.3 == "No resolver, llamar al supervisor para evaluar  la complejidad del problema" ~ 0,
-                                      p.10.15.3 == "Resolver y luego comunicar al supervisor" ~ 1,
-                                      p.10.15.3 == "Resolver sin que sea necesario comunicar al superv" ~ 2,
-                                      p.10.15.3 == "Resolver y luego documentar lo ocurrido." ~ 3))
+# Otras variables   -----------------------------------------------------------
 
 # Paso a usd
 endei = endei %>% 

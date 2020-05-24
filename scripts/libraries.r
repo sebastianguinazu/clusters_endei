@@ -5,6 +5,7 @@ library(foreign)
 library(glue)
 library(ggplot2)
 library(skimr)
+library(stringi)
 
 library(googlesheets4)
 library(RCurl)
