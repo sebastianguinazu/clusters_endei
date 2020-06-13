@@ -1,20 +1,19 @@
 
-# ENDEI II - Clusters segun capacidades empresariales -----------------------------------
+# ENDEI II - Clusters segun capacidades empresariales -------------------------
 
-path = getwd()
 source('scripts/libraries.r')
 
 semilla = 123
 
-# Seleccion de variables ----------------------------------------------------------------
+# Seleccion de variables ------------------------------------------------------
 
 endei = readRDS('working/endei_db')
 
 # variables input
-var.inp = c('ide_endei_ii','dvinc.firmas','dvinc.pub', 'svinc.firmas', 'svinc.pub', 'depto.id', 'dorganiza', 
+var.inp = c('ide_endei_ii','dvinc.firmas','dvinc.pub','depto.id', 'dorganiza', 
             'dnorm.calidad', 'd.especific', 'd.gesproydis','d.diseno','d.mejoracont','d.problemas','d.trazabilidad',
-            'prop.prof', 'prop.tec', 'prop.ing', 'scap.organiza', 'd.rotacion', 'capacit.jer', 'capacit.sup', 
-            'capacit.nojer', 'part.personal', 'd.evaldes', 'dcap.func', 'difu.bpracticas', 'd.basedatos', 'd.estimul')
+            'prop.prof', 'prop.ing', 'd.rotacion', 'capacit.jer',  
+            'capacit.nojer', 'part.personal', 'd.evaldes', 'dcap.func', 'd.basedatos', 'd.estimul')
 
 # variables output
 var.oup = c('ide_endei_ii','Tam_nue','Rama_act','calif.ocde','exporta', 'exp.hincome', 'exp.dest','innovo', 'k.inac','ing',
@@ -38,9 +37,9 @@ df.new = df.new %>%
 
 # Orden de variables
 df.new = df.new[c('d.especific','d.trazabilidad','d.problemas','d.mejoracont','d.gesproydis',
-                  'dnorm.calidad','d.rotacion','part.personal','depto.id','prop.prof','prop.tec',
+                  'dnorm.calidad','d.rotacion','part.personal','depto.id','prop.prof',
                   'capacit.jer','capacit.nojer','dvinc.firmas','dvinc.pub',
-                  'd.evaldes', 'dcap.func', 'difu.bpracticas', 'd.basedatos', 'd.estimul')]
+                  'd.evaldes', 'dcap.func', 'd.basedatos', 'd.estimul')]
 
 # Normalizo atributos entre 0 y 1
 normalize = function(x){
@@ -50,6 +49,8 @@ normalize = function(x){
 df.orig = df.new
 df.new = df.new %>% 
   mutate_all(funs(normalize)) 
+
+saveRDS(df.new, 'working/df_endei2.rds')
 
 # genero una muestra mas chica para que tarde menos
 df.new.sample = df.new[sample(nrow(df.new), size = 500, replace = FALSE),]
@@ -103,3 +104,53 @@ fviz_nbclust(nb) +
   ggtitle("Numero optimo de clusters - K=2") + 
   xlab("Numero de clusters K") + 
   ylab("Frecuencia entre todos los Indices")
+
+
+# K-MEANS ALGORTITHM ---------------------------------------------------------------------
+
+# Kmeans{amap} algorithm
+K = Kmeans(df.new, centers=2, method="manhattan", iter.max= 500, nstart = 50) 
+
+table(K$cluster)
+cent = t(K$centers)
+
+wss = sum(K$withinss)
+
+df = data.frame(df.orig,K$cluster)
+
+# Grafico de la distribucion de las variables x cluster
+
+# dummies
+gdat_d = df %>%
+  select(-c(prop.prof, capacit.jer, capacit.nojer)) %>% 
+  mutate(id = row_number()) %>%
+  pivot_longer(-c(id,K.cluster), names_to="variable", values_to="value")
+
+ggplot(gdat_d) +
+  geom_bar(aes(x=value, fill=factor(K.cluster)), alpha=0.5, position = "fill") +
+  facet_wrap(~variable, scales = "free") +
+  NULL
+
+# continuas
+gdat_c = df %>%
+  select(K.cluster, prop.prof, capacit.jer, capacit.nojer) %>% 
+  mutate(id = row_number()) %>%
+  pivot_longer(-c(id,K.cluster), names_to="variable", values_to="value")
+
+ggplot(gdat_c) +
+  geom_density(aes(x=value, fill=factor(K.cluster)), alpha=0.5) +
+  facet_wrap(~variable, scales = "free") +
+  NULL
+
+# correlaciones
+GGally::ggpairs(df, aes(color=factor(K.cluster)))
+
+
+# uno base completa con columna de cluster ------------------------------------
+
+# aplico mismo filtro que para cluster
+endei = endei[!endei %>% select(var.inp) %>% is.na() %>% rowSums(),]
+
+endei_clu = cbind(endei, cluster = K$cluster)
+
+saveRDS(endei_clu, 'working/endei_clu')

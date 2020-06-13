@@ -46,7 +46,7 @@ to_num = endei_vars %>% filter(tipo == 'numeric') %>%
   select(variable)
 
 endei = endei %>% 
-  mutate_at(to_num$variable, funs(as.numeric(.))) %>% 
+  mutate_at(to_num$variable, funs(as.numeric(as.character(.)))) %>% 
   mutate_at(to_char$variable, funs(as.character(.))) %>%
   mutate_at(to_char$variable, funs(stri_trans_general(., "Latin-ASCII"))) %>% 
   select(endei_vars$variable)
@@ -150,18 +150,12 @@ endei = endei %>%
 # scap.organiza: suma actividades o herramientas que hacen a la capacidad organizativa                                                            #
 
 endei = endei %>% mutate(
-         d.especific = case_when((p.2.8.1 == "Si")  ~ 1,
-                                    TRUE ~ 0),
-         d.trazabilidad = case_when(p.2.8.3 == "Si"  ~ 1,
-                                    TRUE ~ 0), 
-         d.problemas = case_when(p.2.8.4 == "Si"  ~ 1,
-                                    TRUE ~ 0), 
-         d.mejoracont = case_when(p.2.8.5 == "Si"  ~ 1,
-                                    TRUE ~ 0),
-         d.diseno = case_when(p.2.8.6 == "Si"  ~ 1,
-                                    TRUE ~ 0),         
-         d.gesproydis = case_when(p.2.8.7 == "Si"  ~ 1,
-                                    TRUE ~ 0),
+         d.especific = case_when((p.2.8.1 == "Si")  ~ 1, TRUE ~ 0),
+         d.trazabilidad = case_when(p.2.8.3 == "Si"  ~ 1, TRUE ~ 0), 
+         d.problemas = case_when(p.2.8.4 == "Si"  ~ 1, TRUE ~ 0), 
+         d.mejoracont = case_when(p.2.8.5 == "Si"  ~ 1, TRUE ~ 0),
+         d.diseno = case_when(p.2.8.6 == "Si"  ~ 1, TRUE ~ 0),         
+         d.gesproydis = case_when(p.2.8.7 == "Si"  ~ 1, TRUE ~ 0),
          dnorm.calidad = case_when((p.2.8.8 == "Si" | p.2.8.9 == "Si")  ~ 1,
                                     TRUE ~ 0),
          dorganiza = case_when((p.2.8.1 == "Si" | p.2.8.2 == "Si" | p.2.8.3 == "Si" | p.2.8.4 == "Si" | p.2.8.5 == "Si"  | p.2.8.6 == "Si" | p.2.8.7 == "Si") ~ 1,
@@ -175,7 +169,6 @@ endei = endei %>% mutate(
 
 # 7. Implementa una rotacion planificada del personal.
 # 8. Grado de participacion del personal para el desarrollo de actividades
-# 9. Difusion de buenas practicas
 
 # Rotacion personal (planificada)
 endei = endei %>%
@@ -189,22 +182,13 @@ endei = endei %>%
   rowwise() %>%
   mutate(part.personal = sum(c(p.10.15.4.1,p.10.15.4.2,p.10.15.4.3, p.10.15.4.4, p.10.15.4.5)))
 
-# Difusion de buenas practicas
-endei = endei %>% 
-  mutate(difu.bpracticas = case_when(
-    p.11.4.3 %in% c('Refleja Algo', 'Refleja Poco') ~ 1,
-    p.11.4.3 == 'Refleja Bastante' ~ 2,
-    p.11.4.3 == 'Refleja totalmente la situacion de la empresa' ~ 3,
-    TRUE ~ 0
-  ))
-
 
 # c.Absorcion acumulada -------------------------------------------------------
 
-# 10. Tiene departamento formal de I+D. Variable binaria.
-# 11. Porcentaje de profesionales en el personal total. 
-# 12. Porcentaje de personal con calificacion tecnica en el personal total. 
-# 13. Persona entrenada para manipular grandes bases de datos
+# 9. Tiene departamento formal de I+D. Variable binaria.
+# 10. Porcentaje de profesionales en el personal total. 
+# 11. Porcentaje de personal con calificacion tecnica en el personal total. 
+# 12. Persona entrenada para manipular grandes bases de datos
 
 endei = endei %>% 
   mutate(depto.id = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
@@ -219,9 +203,9 @@ endei = endei %>%
 
 # d.Absorcion potencial/capacidades potenciales  ------------------------------
 
-# 14. Tiene un area responsable de orgranizar las actividades de capacitacion. Variable binaria.
-# 15. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel jerarquico
-# 16. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel no jerarquico
+# 13. Tiene un area responsable de orgranizar las actividades de capacitacion. Variable binaria.
+# 14. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel jerarquico
+# 15. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel no jerarquico
 
 # dcap.func: si hay algun area responsable de organizar actividades de capacitacion (captado por si se atiende algun aspecto)
 endei = endei %>% 
@@ -241,8 +225,8 @@ endei = endei %>%
 
 # e.Incentivos ----------------------------------------------------------------
 
-# 17. Aplica algun sistema de evaluacion de desempeno para el personal
-# 18. Estimulo a empleados a generar conocimiento
+# 16. Aplica algun sistema de evaluacion de desempeno para el personal
+# 17. Estimulo a empleados a generar conocimiento
 
 endei = endei %>% 
   mutate(d.evaldes  = case_when((p.10.4.1 == "Si" | p.10.4.2 == "Si" | p.10.4.3 == "Si") ~ 1,
@@ -257,8 +241,8 @@ endei = endei %>%
 
 # f.Vinculaciones  ------------------------------------------------------------
 
-# 19. Tiene vinculaciones con otras firmas
-# 20. Tiene vinculaciones con el sector publico
+# 18. Tiene vinculaciones con otras firmas
+# 19. Tiene vinculaciones con el sector publico
 
 # vinculaciones con firmas y con  spub (dummy y suma)
 endei = endei %>% 

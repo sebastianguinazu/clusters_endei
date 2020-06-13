@@ -15,3 +15,5 @@ library(clustertend)
 library(clValid)
 library(NbClust)
 
+library(amap)
+
