@@ -5,9 +5,10 @@ source('scripts/libraries.r')
 
 semilla = 123
 
-# Seleccion de variables ------------------------------------------------------
-
 endei = readRDS('working/endei_db')
+
+
+# Seleccion de variables ------------------------------------------------------
 
 # variables input
 var.inp = c('ide_endei_ii','dvinc.firmas','dvinc.pub','depto.id', 'dorganiza', 
@@ -106,7 +107,7 @@ fviz_nbclust(nb) +
   ylab("Frecuencia entre todos los Indices")
 
 
-# K-MEANS ALGORTITHM ---------------------------------------------------------------------
+# k-means algorithm -----------------------------------------------------------
 
 # Kmeans{amap} algorithm
 K = Kmeans(df.new, centers=2, method="manhattan", iter.max= 500, nstart = 50) 
