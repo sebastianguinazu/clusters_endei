@@ -138,81 +138,65 @@ endei = endei %>%
 # esto lo cambiaron, ver de armar variables de financiamiento
 
 
-# a.Capacidad productiva/practicas empresariales ------------------------------
+# a.Capacidad productiva ------------------------------------------------------
 
-# 1.d.especific:
-# 2.d.trazabilidad: 
-# 3.d.problemas:
-# 4.d.mejoracont:
-# 5.d.diseno:
-# 6.dnorm.calidad: Implementa Normas ISO o Normas sectoriales o de prodcutos
-# d.gesproydis:
-# scap.organiza: suma actividades o herramientas que hacen a la capacidad organizativa                                                            #
-
-endei = endei %>% mutate(
-         d.especific = case_when((p.2.8.1 == "Si")  ~ 1, TRUE ~ 0),
-         d.trazabilidad = case_when(p.2.8.3 == "Si"  ~ 1, TRUE ~ 0), 
-         d.problemas = case_when(p.2.8.4 == "Si"  ~ 1, TRUE ~ 0), 
-         d.mejoracont = case_when(p.2.8.5 == "Si"  ~ 1, TRUE ~ 0),
-         d.diseno = case_when(p.2.8.6 == "Si"  ~ 1, TRUE ~ 0),         
-         d.gesproydis = case_when(p.2.8.7 == "Si"  ~ 1, TRUE ~ 0),
-         dnorm.calidad = case_when((p.2.8.8 == "Si" | p.2.8.9 == "Si")  ~ 1,
-                                    TRUE ~ 0),
-         dorganiza = case_when((p.2.8.1 == "Si" | p.2.8.2 == "Si" | p.2.8.3 == "Si" | p.2.8.4 == "Si" | p.2.8.5 == "Si"  | p.2.8.6 == "Si" | p.2.8.7 == "Si") ~ 1,
-                                   TRUE ~ 0)) %>% 
-  mutate_at(vars(starts_with("p.2.8.")), funs(case_when(. == "Si"~ 1, TRUE ~ 0))) %>%
-  rowwise() %>%
-  mutate(scap.organiza = sum(c(p.2.8.1,p.2.8.2,p.2.8.3,p.2.8.4,p.2.8.5,p.2.8.6,p.2.8.7)))
-
-
-# b.Organizacion del trabajo --------------------------------------------------
-
-# 7. Implementa una rotacion planificada del personal.
-# 8. Grado de participacion del personal para el desarrollo de actividades
-
-# Rotacion personal (planificada)
-endei = endei %>%
-  mutate_at(vars(c("p.10.15.a", "p.10.15.b", "p.10.15.c")),funs(case_when(. =="Implementa, planificada"~ 1, TRUE ~ 0)))  %>%
-  rowwise() %>%
-  mutate(d.rotacion = max(c(p.10.15.a,p.10.15.b,p.10.15.c)))
-
-# Participacion del personal (practicas de trabajo)
-endei = endei %>%
-  mutate_at(vars(starts_with("p.10.15.4.")),funs(case_when(. =="Si"~ 1, TRUE ~ 0)))  %>%
-  rowwise() %>%
-  mutate(part.personal = sum(c(p.10.15.4.1,p.10.15.4.2,p.10.15.4.3, p.10.15.4.4, p.10.15.4.5)))
-
-
-# c.Absorcion acumulada -------------------------------------------------------
-
-# 9. Tiene departamento formal de I+D. Variable binaria.
-# 10. Porcentaje de profesionales en el personal total. 
-# 11. Porcentaje de personal con calificacion tecnica en el personal total. 
-# 12. Persona entrenada para manipular grandes bases de datos
+# 1. Capacidades productivas (capac_prod)
+# 2. Practicas empresariales (prac_empre)
 
 endei = endei %>% 
-  mutate(depto.id = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
-         d.basedatos = ifelse(p.2.7.7 == 'Si', 1,0)) %>% 
+  mutate_at(vars(starts_with("p.2.8.")), funs(case_when(. == "Si" ~ 1, TRUE ~ 0))) %>%
+  rowwise() %>%
+  mutate(capac_prod = sum(c(p.2.8.1,p.2.8.2,p.2.8.3)),
+         prac_empre = sum(c(p.2.8.4,p.2.8.5,p.2.8.6)))
+
+
+# b.Capacidades de Absorcion --------------------------------------------------
+
+# 3. Absorcion inhouse (abs_ih)
+# 4. Nivel de profesionales/tecnicos (prop_prof)
+
+# aux: d_deptoid (tiene departamento formal de I+D)
+# aux: d_basedatos (tiene personal para analisis de datos)
+
+endei = endei %>% 
+  mutate(d_deptoid = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
+         d_basedatos = ifelse(p.2.7.7 == 'Si', 1,0)) %>% 
   rowwise() %>% 
   mutate(
-         prop.prof   = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
-         prop.tec    = mean(c(prop_caltec_2014,prop_caltec_2015,prop_caltec_2016)),
-         prop.ing    = mean(c(prop_eduing_2014,prop_eduing_2015,prop_eduing_2016))
+         prop_prof = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
+         abs_ih = sum(d_deptoid, d_basedatos)
   )
 
+# Capeo los valores extremos de prop_prof 
+pp_p95 = quantile(endei$prop_prof,0.95, na.rm = T)
+endei$prop_prof = ifelse(endei$prop_prof > pp_p95, pp_p95, endei$prop_prof) 
 
-# d.Absorcion potencial/capacidades potenciales  ------------------------------
 
-# 13. Tiene un area responsable de orgranizar las actividades de capacitacion. Variable binaria.
-# 14. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel jerarquico
-# 15. Porcentaje de personas de la empresa que recibieron cursos de formacion a nivel no jerarquico
+# c.Capacidades organizacionales ----------------------------------------------
 
-# dcap.func: si hay algun area responsable de organizar actividades de capacitacion (captado por si se atiende algun aspecto)
+# 5. Gestion de Recursos Humanos (gest_rrhh)
+# 6. Aplica algun sistema de evaluacion de desempeno para el personal (eval_des)
+
+# aux: tiene area de RRHH (d_rrhh)
+# aux: tiene planes de carrera (d_placar)
+
 endei = endei %>% 
-  mutate(dcap.func = case_when((p.10.5.1 == "Si" | p.10.5.2 == "Si" | p.10.5.3 == "Si" |
-                                p.10.5.4 == "Si" | p.10.5.5 == "Si"  | p.10.5.6 == "Si" |
-                                p.10.5.7 == "Si") ~ 1,
-                                TRUE ~ 0))
+  mutate(gest_rrhh = sum(ifelse(p.10.1.3.3=="Si",1,0),
+                         ifelse(p.10.1.3.4=="Si",1,0),
+                         ifelse(p.10.1.3.5=="Si",1,0),
+                         ifelse(p.10.1.3.6=="Si",1,0)))
+
+endei = endei %>% 
+  mutate(eval_des  = sum(ifelse(p.10.4.1=="Si",1,0), 
+                         ifelse(p.10.4.3=="Si",1,0),
+                         ifelse(p.10.4.3=="Si",1,0))
+         )
+
+
+# d.Capacidades de aprendizaje ------------------------------------------------
+
+# 7. Proporcion de personas capacitadas (prop_capac)
+# 8. Vinculaciones con instituciones publicas y privadas (vinc_inst)
 
 # Personal capacitado a nivel jerarquico, supervisores y nivel no-jerarquico (en %)
 endei = endei %>% 
@@ -220,44 +204,31 @@ endei = endei %>%
          capacit.sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
          capacit.nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
   rowwise() %>% 
-  mutate(capacit.jer  = mean(c(capacit.ger, capacit.sup)))
+  mutate(prop_capac  = mean(c(capacit.ger, capacit.sup, capacit.nojer)))
 
+endei$prop_capac = endei$prop_capac = case_when(
+  endei$prop_capac < quantile(endei$prop_capac, 0.6) ~ 1,
+  endei$prop_capac < quantile(endei$prop_capac, 0.8) ~ 2,
+  TRUE ~ 3
+)
 
-# e.Incentivos ----------------------------------------------------------------
-
-# 16. Aplica algun sistema de evaluacion de desempeno para el personal
-# 17. Estimulo a empleados a generar conocimiento
-
-endei = endei %>% 
-  mutate(d.evaldes  = case_when((p.10.4.1 == "Si" | p.10.4.2 == "Si" | p.10.4.3 == "Si") ~ 1,
-                               TRUE ~ 0),
-         d.estimul = case_when(p.11.3.1 %in% c("No refleja la situacion de la empresa","Ns/Nc")  ~ 0,
-                               p.11.3.1 == "Refleja Poco" ~ 1,
-                               p.11.3.1 == "Refleja Algo" ~ 2,
-                               p.11.3.1 == "Refleja Bastante" ~ 3,
-                               p.11.3.1 == "Refleja totalmente la situacion de la empresa" ~ 4)
-         )
-
-
-# f.Vinculaciones  ------------------------------------------------------------
-
-# 18. Tiene vinculaciones con otras firmas
-# 19. Tiene vinculaciones con el sector publico
+# aux: Tiene vinculaciones con otras firmas
+# aux: Tiene vinculaciones con el sector publico
 
 # vinculaciones con firmas y con  spub (dummy y suma)
 endei = endei %>% 
   mutate_at(vars(starts_with("p.9.")),funs(ifelse(. %in% c('Si'), 1, 0))) %>% # o matches instead of strarts_with; si hay mas variables "var1|var2"
-  mutate(dvinc.firmas = ifelse(p.9.1.b == 1 | p.9.2.b == 1 | p.9.3.b == 1 | p.9.4.b == 1 |
-                               p.9.5.b == 1 | p.9.6.b == 1 | p.9.7.b == 1,1,0),
-         dvinc.pub = ifelse(p.9.1.c == 1 | p.9.2.c == 1 | p.9.3.c == 1 | p.9.4.c == 1 | 
-                             p.9.5.c == 1 | p.9.6.c == 1 | p.9.7.c == 1 | p.9.1.d == 1 |
-                             p.9.2.d == 1 | p.9.3.d == 1 | p.9.4.d == 1 | p.9.5.d == 1 |
-                             p.9.6.d == 1 | p.9.7.d == 1,1,0)) %>%
-  rowwise() %>%
-  mutate(svinc.firmas = sum(c(p.9.1.b, p.9.2.b, p.9.3.b, p.9.4.b, p.9.5.b, p.9.6.b, p.9.7.b)),
-         svinc.pub = sum(c(p.9.1.c, p.9.2.c, p.9.3.c, p.9.4.c, p.9.5.c, p.9.6.c, p.9.7.c, 
-                            p.9.1.d, p.9.2.d,p.9.3.d, p.9.4.d, p.9.5.d, p.9.6.d, p.9.7.d, 
-                            p.9.1.f, p.9.2.f, p.9.3.f, p.9.4.f, p.9.5.f, p.9.6.f, p.9.7.f)))
+  mutate(dvinc_firmas = ifelse(p.9.1.b == 1 | p.9.2.b == 1 | p.9.3.b == 1 | p.9.4.b == 1 |
+                                 p.9.5.b == 1 | p.9.6.b == 1 | p.9.7.b == 1,1,0),
+         dvinc_pub = ifelse(p.9.1.c == 1 | p.9.2.c == 1 | p.9.3.c == 1 | p.9.4.c == 1 | 
+                              p.9.5.c == 1 | p.9.6.c == 1 | p.9.7.c == 1 | p.9.1.d == 1 |
+                              p.9.2.d == 1 | p.9.3.d == 1 | p.9.4.d == 1 | p.9.5.d == 1 |
+                              p.9.6.d == 1 | p.9.7.d == 1,1,0)) 
+
+endei = endei %>% mutate(vinc_inst = dvinc_firmas + dvinc_pub) %>% 
+  select(-c(dvinc_firmas, dvinc_pub))
+
+
 
 
 # Otras variables   -----------------------------------------------------------
