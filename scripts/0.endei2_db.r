@@ -145,6 +145,12 @@ endei = endei %>%
 
 endei = endei %>% 
   mutate_at(vars(starts_with("p.2.8.")), funs(case_when(. == "Si" ~ 1, TRUE ~ 0))) %>%
+  mutate(d_especinsum = p.2.8.1,
+         d_especproce = p.2.8.2,
+         d_trazabilidad = p.2.8.3,
+         d_problemas = p.2.8.4,
+         d_mejoracont = p.2.8.5,
+         d_diseno = p.2.8.6) %>% 
   rowwise() %>%
   mutate(capac_prod = sum(c(p.2.8.1,p.2.8.2,p.2.8.3)),
          prac_empre = sum(c(p.2.8.4,p.2.8.5,p.2.8.6)))
@@ -160,11 +166,13 @@ endei = endei %>%
 
 endei = endei %>% 
   mutate(d_deptoid = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
-         d_basedatos = ifelse(p.2.7.7 == 'Si', 1,0)) %>% 
+         d_sistemas = (ifelse(area_sistemas=='Si',1,0))) %>% 
   rowwise() %>% 
   mutate(
          prop_prof = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
-         abs_ih = sum(d_deptoid, d_basedatos)
+         prop_tec = mean(c(prop_caltec_2014, prop_caltec_2015, prop_caltec_2016)),
+         prop_calif = mean(c(prop_prof, prop_tec)),
+         abs_ih = sum(d_deptoid, d_sistemas)
   )
 
 # Capeo los valores extremos de prop_prof 
@@ -183,13 +191,14 @@ endei$prop_prof = ifelse(endei$prop_prof > pp_p95, pp_p95, endei$prop_prof)
 endei = endei %>% 
   mutate(gest_rrhh = sum(ifelse(p.10.1.3.3=="Si",1,0),
                          ifelse(p.10.1.3.4=="Si",1,0),
-                         ifelse(p.10.1.3.5=="Si",1,0),
                          ifelse(p.10.1.3.6=="Si",1,0)))
 
 endei = endei %>% 
-  mutate(eval_des  = sum(ifelse(p.10.4.1=="Si",1,0), 
-                         ifelse(p.10.4.3=="Si",1,0),
-                         ifelse(p.10.4.3=="Si",1,0))
+  mutate_at(vars(p.2.3.2, p.2.3.5, p.2.7.1),
+            funs(str_replace(., "SI", "Si"))) %>% 
+  mutate(monit_opo = sum(ifelse(p.2.3.2=="Si",1,0), 
+                         ifelse(p.2.3.5=="Si",1,0),
+                         ifelse(p.2.7.1=="Si",1,0))
          )
 
 
@@ -200,11 +209,11 @@ endei = endei %>%
 
 # Personal capacitado a nivel jerarquico, supervisores y nivel no-jerarquico (en %)
 endei = endei %>% 
-  mutate(capacit.ger   = ifelse(!is.na(p.10.8.1), p.10.8.1, 0),
-         capacit.sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
-         capacit.nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
+  mutate(capacit_ger   = ifelse(!is.na(p.10.8.1), p.10.8.1, 0),
+         capacit_sup   = ifelse(!is.na(p.10.8.2), p.10.8.2, 0), 
+         capacit_nojer = ifelse(!is.na(p.10.8.3), p.10.8.3, 0)) %>%
   rowwise() %>% 
-  mutate(prop_capac  = mean(c(capacit.ger, capacit.sup, capacit.nojer)))
+  mutate(prop_capac = mean(c(capacit_ger, capacit_sup, capacit_nojer)))
 
 endei$prop_capac = endei$prop_capac = case_when(
   endei$prop_capac < quantile(endei$prop_capac, 0.6) ~ 1,
@@ -232,6 +241,15 @@ endei = endei %>% mutate(vinc_inst = dvinc_firmas + dvinc_pub) %>%
 
 
 # Otras variables   -----------------------------------------------------------
+
+# Obstaculos
+vars_obst = endei %>% select(starts_with('p.7.3.')) %>% 
+  select(-c(p.7.3.11, p.7.3.11.otros)) %>% names() 
+
+endei = endei %>% 
+  mutate_at(vars(all_of(vars_obst)), funs(str_replace(., "SI", "Si"))) %>% 
+  mutate_at(vars(all_of(vars_obst)), funs(ifelse(.=="Si",1,0))) 
+
 
 # Paso a usd
 endei = endei %>% 

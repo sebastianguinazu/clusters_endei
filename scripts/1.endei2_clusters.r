@@ -10,29 +10,19 @@ endei = readRDS('working/endei_db')
 
 # Seleccion de variables ------------------------------------------------------
 
-# variables input
-var.inp = c('ide_endei_ii', 'capac_prod',	'prac_empre'
-            # ,'rotacion_pla',	'part_perso', 'estimul_emp'
-            # ,'eval_des'
-            ,'abs_ih',	'prop_prof',	'prop_capac',	'gest_rrhh'
-            ,'vinc_inst')
+# variables input 
+var_inp = c('capac_prod',	'prac_empre', 'abs_ih',	'prop_calif',	
+            'gest_rrhh', 'monit_opo', 'prop_capac', 'vinc_inst')
 
-# variables output
-var.oup = c('ide_endei_ii','Tam_nue','Rama_act','calif.ocde','exporta', 'exp.hincome', 'exp.dest','innovo', 'k.inac','ing',
-            'empleo','va.tr', 'dnorm.calidad', 'joven', 'inno.ventas', 'id.ventas', 'dai','did', 'inno.tot', 'inno.id',
-            'tc.va.tr', 'tc.empleo','tc.ventas')
-
-# pierdo muchas - revisar NA
-colna = colSums(is.na(endei %>% select(var.inp)))
-
+# me quedo con las variables para cluster
 df_varsel =  endei %>% 
-  select(var.inp) %>% 
-  drop_na()
+  select(var_inp)
 
-ide = df_varsel$ide_endei_ii
+# guardo obs NA para filtrar despues
+index_na = which(rowSums(is.na(df_varsel)) > 0)
 
-df_varsel = df_varsel %>%
-  select(-ide_endei_ii)
+# elimino filas con na
+df_varsel = df_varsel %>% drop_na()
 
 
 # Tratamiento de variables para cluster -------------------------------------------------
@@ -54,7 +44,7 @@ saveRDS(df_varsel, 'working/df_endei2.rds')
 df_varsel_dist = dist(df_varsel, method = 'manhattan')
 
 # genero una muestra mas chica para que tarde menos
-df_varsel_sample = df_varsel[sample(nrow(df_varsel), size = 300, replace = FALSE),]
+df_varsel_sample = df_varsel[sample(nrow(df_varsel), size = 800, replace = FALSE),]
 
 
 # Matriz de correlaciones  ----------------------------------------------------
@@ -68,10 +58,10 @@ GGally::ggcorr(df_varsel)
 # Analisis de tendencia de cluster --------------------------------------------
 
 # Hopkins
-hopkins = get_clust_tendency(df_varsel, n = 300, graph = FALSE, 
+hopkins = get_clust_tendency(df_varsel, n = 200, graph = FALSE,
                              seed = semilla)
 hopkins$hopkins_stat %>% round(3)
-# 0.802
+# 0.808
 
 # Heatmap -> calcular distancia con manhatan
 fviz_dist(dist(df_varsel_sample, method = "manhattan"), 
@@ -99,22 +89,14 @@ fviz_nbclust(df_varsel_sample, FUNcluster = kmeans, method = "silhouette",
 # Gap statistic
 set.seed(semilla) 
 fviz_nbclust(df_varsel_sample, FUNcluster = kmeans,  method = "gap_stat", 
-             k.max=10, nstart = 50, nboot = 50, 
+             k.max=6, nstart = 50, nboot = 20, 
              diss = dist(df_varsel_sample, method = "manhattan"),
              print.summary = F) +
   labs(subtitle = "Gap statistic method") 
 
-gap_stat = clusGap(df_varsel_sample, FUN = kmeans, K.max = 10, B = 20)
+gap_stat = clusGap(df_varsel_sample, FUN = kmeans, K.max = 8, B = 20)
 fviz_gap_stat(gap_stat) +
   theme_minimal() + ggtitle("fviz_gap_stat: Gap Statistic")
-
-# NbClust() function: 30 indices for choosing the best number of clusters
-nb = NbClust(df_varsel_sample, distance = "manhattan", min.nc = 2,
-             max.nc = 10, method = "kmeans", index="all")
-fviz_nbclust(nb) +
-  ggtitle("Numero optimo de clusters - K=2") + 
-  xlab("Numero de clusters K") + 
-  ylab("Frecuencia entre todos los Indices")
 
 
 # k-means algorithm -----------------------------------------------------------
@@ -124,12 +106,15 @@ set.seed(123)
 # 2K
 K2 = Kmeans(df_varsel, centers=2, method="manhattan", iter.max= 1000, nstart = 100) 
 
-table(K2$cluster)
+nclu2=table(K2$cluster)
 t(K2$centers)
 
 wss = sum(K2$withinss)
 
-df2 = data.frame(df_varsel, cluster = K2$cluster)
+df2 = data.frame(df_varsel, cluster = as.factor(K2$cluster)) %>% 
+  mutate(cluster=case_when(cluster == which.max(nclu2) ~ 1,
+                           TRUE ~ 2))
+table(df2$cluster)
 
 # Silhuette 2K
 df_spl2 = df2[sample(nrow(df2), 250), ]
@@ -146,25 +131,31 @@ fviz_silhouette(df_k2_silhouette)
 # 3K
 K3 = Kmeans(df_varsel, centers=3, method="manhattan", iter.max= 1000, nstart = 100) 
 
-table(K3$cluster)
+nclu3 = table(K3$cluster)
 t(K3$centers)
 
 wss = sum(K2$withinss)
 
-df3 = data.frame(df_varsel, cluster = K3$cluster)
+df3 = data.frame(df_varsel, cluster = as.factor(K3$cluster)) %>% 
+  mutate(cluster=case_when(cluster == which.max(nclu3) ~ 1,
+                           cluster == which.min(nclu3) ~ 3,
+                           TRUE ~ 2))
+table(df3$cluster)
+
 
 # Silhuette 3K
 df_spl3 = df3[sample(nrow(df3), 250), ]
 df_k3_silhouette = silhouette(df_spl3$cluster, 
                                   dist(df_spl3 %>% select(-cluster), 
                                        method = 'manhattan')) 
-fviz_silhouette(df_k3_silhouette)
+fviz_silhouette(df_k3_silhouette) +
+  theme_classic() +
+  ylim(-0.1, 0.75)
 
 
 # Analisis cruzado
 
-table(K2$cluster, K3$cluster)
-
+table(df2$cluster, df3$cluster)
 
 
 # Analizo resultados ----------------------------------------------------------
@@ -173,28 +164,97 @@ table(K2$cluster, K3$cluster)
 
 # https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/
 
+df3_smpl = df3[sample(nrow(df3), 300), ]
+df3_smpl_dist = dist(df3_smpl %>% select(-cluster), method = 'manhattan')
+
 # 2Dim
-tsne = Rtsne::Rtsne(df_varsel_dist, dims = 2, 
-                    verbose=TRUE, max_iter = 500, is_distance = T)
-tsne$Y %>% as.data.frame() %>% 
-  ggplot(aes(x = V1, y = V2, color = K2$cluster)) +
-  geom_point()
+tsne = Rtsne::Rtsne(df3_smpl_dist, dims = 2, 
+                    verbose=TRUE, max_iter = 1000, is_distance = T)
+tsne = data.frame(V1 = tsne$Y[,1], V2 = tsne$Y[,2], cluster = df3_smpl$cluster) 
+tsne_m = tsne %>% group_by(cluster) %>% 
+  summarise(V1 = mean(V1), V2 = mean(V2))
+ggplot(tsne, aes(x = V1, y = V2, color = as.factor(cluster))) +
+  geom_point() +
+  geom_point(data = tsne_m, size = 4)
 
 # 3Dim
-tsne3d = Rtsne::Rtsne(df_varsel_dist, dims = 3,  verbose=TRUE, max_iter = 400)
+tsne3d = Rtsne::Rtsne(df3_smpl_dist, dims = 3,  verbose=TRUE, max_iter = 400)
 car::scatter3d(x=tsne3d$Y[,1], y=tsne3d$Y[,2],z=tsne3d$Y[,3],
-          groups=as.factor(K3$cluster)
+          groups=as.factor(df3_smpl$cluster)
           # ,grid = FALSE
           ,surface = FALSE
           # ,surface.col = c("#0000FF", "#FF3333")
           ,ellipsoid = TRUE
 )
 
-# uno base completa con columna de cluster ------------------------------------
+
+# Uno base completa con columna de cluster ------------------------------------
 
 # aplico mismo filtro que para cluster
-endei = endei[!endei %>% select(var.inp) %>% is.na() %>% rowSums(),]
+endei_clu = endei[-index_na,]
 
-endei_clu = cbind(endei, cluster = K$cluster)
+endei_clu = cbind(endei_clu, cluster = as.factor(df3$cluster))
 
 saveRDS(endei_clu, 'working/endei_clu')
+
+
+#  ------------------------------------
+
+# 4K
+K4 = Kmeans(df_varsel, centers=4, method="manhattan", iter.max= 800, nstart = 100) 
+
+nclu4 = table(K4$cluster)
+t(K4$centers)
+
+wss = sum(K4$withinss)
+
+df4 = data.frame(df_varsel, cluster = K4$cluster) %>% 
+  mutate(cluster=case_when(cluster == 1 ~ 1,
+                           cluster == 4 ~ 2,
+                           cluster == 3 ~ 3,
+                           cluster == 2 ~ 4))
+
+# Silhuette 4K
+df_spl4 = df4[sample(nrow(df4), 250), ]
+df_k4_silhouette = silhouette(df_spl4$cluster, 
+                              dist(df_spl4 %>% select(-cluster), 
+                                   method = 'manhattan')) 
+fviz_silhouette(df_k4_silhouette) +
+  theme_classic() +
+  ylim(-0.1, 0.75)
+
+# Analisis cruzado
+table(df3$cluster, df4$cluster)
+
+
+# 6K
+K6 = Kmeans(df_varsel, centers=6, method="manhattan", iter.max= 1000, nstart = 100) 
+
+table(K6$cluster)
+t(K6$centers)
+
+wss = sum(K6$withinss)
+
+df6 = data.frame(df_varsel, cluster = K6$cluster) 
+
+# Silhuette 6K
+df_spl6 = df6[sample(nrow(df6), 260), ]
+df_k6_silhouette = silhouette(df_spl6$cluster, 
+                              dist(df_spl6 %>% select(-cluster), 
+                                   method = 'manhattan')) 
+fviz_silhouette(df_k6_silhouette) +
+  theme_classic() +
+  ylim(-0.1, 0.75)
+
+
+# 2Dim
+df6_smpl = df6[sample(nrow(df6), 300), ]
+df6_smpl_dist = dist(df6_smpl %>% select(-cluster), method = 'manhattan')
+tsne = Rtsne::Rtsne(df6_smpl_dist, dims = 2, 
+                    verbose=TRUE, max_iter = 1000, is_distance = T)
+tsne = data.frame(V1 = tsne$Y[,1], V2 = tsne$Y[,2], cluster = df6_smpl$cluster) 
+tsne_m = tsne %>% group_by(cluster) %>% 
+  summarise(V1 = mean(V1), V2 = mean(V2))
+ggplot(tsne, aes(x = V1, y = V2, color = as.factor(cluster))) +
+  geom_point() +
+  geom_point(data = tsne_m, size = 4)
