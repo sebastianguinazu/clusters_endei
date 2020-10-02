@@ -51,11 +51,6 @@ endei = endei %>%
   mutate_at(to_char$variable, funs(stri_trans_general(., "Latin-ASCII"))) %>% 
   select(endei_vars$variable)
 
-# exploratorio
-# explora = skim_to_list(endei)
-# explora$numeric
-# explora$factor
-
 
 # Creacion de variables estructurales de las firmas ---------------------------
 
@@ -65,9 +60,9 @@ tc.2016 = 4.5508
 
 # Renombro variables
 endei = endei %>% 
-  rename(empleo.2014 = cant_nivtotal_2014) %>% 
-  rename(empleo.2015 = cant_nivtotal_2015) %>% 
-  rename(empleo.2016 = cant_nivtotal_2016) 
+  rename(empleo_2014 = cant_nivtotal_2014) %>% 
+  rename(empleo_2015 = cant_nivtotal_2015) %>% 
+  rename(empleo_2016 = cant_nivtotal_2016) 
 
 # Reemplazo NA por 0
 endei = endei %>% 
@@ -110,7 +105,7 @@ endei = endei %>%
 
 # Capital intenacional 
 endei = endei %>% 
-  mutate(k.inac = ifelse(p.1.8 == 'Con presencia de capital internacional', 1, 0))
+  mutate(k_inac = ifelse(p.1.8 == 'Con presencia de capital internacional', 1, 0))
 
 # Sectores de actividad
 alta_tecnologia = c('Farmaceuticas', 'Productos quimicos', 'Material electrico, radio, television',
@@ -161,23 +156,19 @@ endei = endei %>%
 # 3. Absorcion inhouse (abs_ih)
 # 4. Nivel de profesionales/tecnicos (prop_prof)
 
-# aux: d_deptoid (tiene departamento formal de I+D)
-# aux: d_basedatos (tiene personal para analisis de datos)
-
 endei = endei %>% 
+  mutate_at(vars(p.2.3.2, p.2.3.5, p.2.7.1),
+            funs(str_replace(., "SI", "Si"))) %>% 
   mutate(d_deptoid = ifelse(p.5.1.6 == 'Si' | p.5.1.5 == 'Si',1,0),
-         d_sistemas = (ifelse(area_sistemas=='Si',1,0))) %>% 
-  rowwise() %>% 
-  mutate(
-         prop_prof = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
-         prop_tec = mean(c(prop_caltec_2014, prop_caltec_2015, prop_caltec_2016)),
-         prop_calif = mean(c(prop_prof, prop_tec)),
-         abs_ih = sum(d_deptoid, d_sistemas)
-  )
+         d_montec = ifelse(p.2.3.2=="Si",1,0),
+         d_montcomp = ifelse(p.2.3.5=="Si",1,0),
+         d_moninfo = ifelse(p.2.7.1=="Si",1,0),
+         abs_ih = sum(d_deptoid, d_montec, d_montcomp)) 
 
-# Capeo los valores extremos de prop_prof 
-pp_p95 = quantile(endei$prop_prof,0.95, na.rm = T)
-endei$prop_prof = ifelse(endei$prop_prof > pp_p95, pp_p95, endei$prop_prof) 
+endei = endei %>%   
+  mutate(prop_prof = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
+         prop_tec = mean(c(prop_caltec_2014, prop_caltec_2015, prop_caltec_2016)),
+         prop_calif = mean(c(prop_prof, prop_tec)))
 
 
 # c.Capacidades organizacionales ----------------------------------------------
@@ -185,21 +176,18 @@ endei$prop_prof = ifelse(endei$prop_prof > pp_p95, pp_p95, endei$prop_prof)
 # 5. Gestion de Recursos Humanos (gest_rrhh)
 # 6. Aplica algun sistema de evaluacion de desempeno para el personal (eval_des)
 
-# aux: tiene area de RRHH (d_rrhh)
-# aux: tiene planes de carrera (d_placar)
+endei = endei %>% 
+  mutate(d_rrhhdto = ifelse(p.10.1=="Si",1,0),
+         d_perffor = ifelse(p.10.2.1=="Si",1,0),
+         d_evaldes = ifelse(p.10.4.1=="Si",1,0),
+         gest_rrhh = sum(d_rrhhdto, d_perffor, d_evaldes))
 
 endei = endei %>% 
-  mutate(gest_rrhh = sum(ifelse(p.10.1.3.3=="Si",1,0),
-                         ifelse(p.10.1.3.4=="Si",1,0),
-                         ifelse(p.10.1.3.6=="Si",1,0)))
-
-endei = endei %>% 
-  mutate_at(vars(p.2.3.2, p.2.3.5, p.2.7.1),
-            funs(str_replace(., "SI", "Si"))) %>% 
-  mutate(monit_opo = sum(ifelse(p.2.3.2=="Si",1,0), 
-                         ifelse(p.2.3.5=="Si",1,0),
-                         ifelse(p.2.7.1=="Si",1,0))
-         )
+  mutate(d_informat = ifelse(informatizada=="Si",1,0),
+         d_sistemas = ifelse(sis_rrhhctablefinan=="Si",1,0),
+         d_softgest = ifelse(area_sistemas=="Si",1,0),
+         d_sapoydec = ifelse(sis_apoyodec=="Si",1,0), 
+         orga_tec = sum(d_sapoydec, d_sistemas, d_softgest))
 
 
 # d.Capacidades de aprendizaje ------------------------------------------------
@@ -215,29 +203,18 @@ endei = endei %>%
   rowwise() %>% 
   mutate(prop_capac = mean(c(capacit_ger, capacit_sup, capacit_nojer)))
 
-endei$prop_capac = endei$prop_capac = case_when(
-  endei$prop_capac < quantile(endei$prop_capac, 0.6) ~ 1,
-  endei$prop_capac < quantile(endei$prop_capac, 0.8) ~ 2,
-  TRUE ~ 3
-)
-
-# aux: Tiene vinculaciones con otras firmas
-# aux: Tiene vinculaciones con el sector publico
-
 # vinculaciones con firmas y con  spub (dummy y suma)
 endei = endei %>% 
   mutate_at(vars(starts_with("p.9.")),funs(ifelse(. %in% c('Si'), 1, 0))) %>% # o matches instead of strarts_with; si hay mas variables "var1|var2"
-  mutate(dvinc_firmas = ifelse(p.9.1.b == 1 | p.9.2.b == 1 | p.9.3.b == 1 | p.9.4.b == 1 |
+  mutate(d_vincfir = ifelse(p.9.1.b == 1 | p.9.2.b == 1 | p.9.3.b == 1 | p.9.4.b == 1 |
                                  p.9.5.b == 1 | p.9.6.b == 1 | p.9.7.b == 1,1,0),
-         dvinc_pub = ifelse(p.9.1.c == 1 | p.9.2.c == 1 | p.9.3.c == 1 | p.9.4.c == 1 | 
+         d_vincpub = ifelse(p.9.1.c == 1 | p.9.2.c == 1 | p.9.3.c == 1 | p.9.4.c == 1 | 
                               p.9.5.c == 1 | p.9.6.c == 1 | p.9.7.c == 1 | p.9.1.d == 1 |
                               p.9.2.d == 1 | p.9.3.d == 1 | p.9.4.d == 1 | p.9.5.d == 1 |
-                              p.9.6.d == 1 | p.9.7.d == 1,1,0)) 
-
-endei = endei %>% mutate(vinc_inst = dvinc_firmas + dvinc_pub) %>% 
-  select(-c(dvinc_firmas, dvinc_pub))
-
-
+                              p.9.6.d == 1 | p.9.7.d == 1,1,0),
+         d_vincase = ifelse(p.9.1.f == 1 | p.9.2.f == 1 | p.9.3.f == 1 | p.9.4.f == 1 |
+                              p.9.5.f == 1 | p.9.6.f == 1 | p.9.7.f == 1,1,0),
+         vinc_inst = sum(d_vincfir, d_vincpub, d_vincase))
 
 
 # Otras variables   -----------------------------------------------------------
@@ -253,43 +230,43 @@ endei = endei %>%
 
 # Paso a usd
 endei = endei %>% 
-  mutate(ing.2014      = ingr_total_2014 / tc.2014,
-         ing.2015      = ingr_total_2015 / tc.2015,
-         ing.2016      = ingr_total_2016 / tc.2016,
-         va.tr.2014    = va_tr14 / tc.2014,
-         va.tr.2015    = va_tr15 / tc.2015,
-         va.tr.2016    = va_tr16 / tc.2016,
+  mutate(ing_2014 = ingr_total_2014 / tc.2014,
+         ing_2015 = ingr_total_2015 / tc.2015,
+         ing_2016 = ingr_total_2016 / tc.2016,
+         va.tr.2014 = va_tr14 / tc.2014,
+         va.tr.2015 = va_tr15 / tc.2015,
+         va.tr.2016 = va_tr16 / tc.2016,
          inno.tot.2014 = inno_total_2014 / tc.2014,
          inno.tot.2015 = inno_total_2015 / tc.2015,
          inno.tot.2016 = inno_total_2016 / tc.2016)
 
 # Ratios actividades de innovacion sobre ventas
 endei = endei %>% 
-  mutate(inno.ventas.2014 = (inno.tot.2014 / ing.2014)*100,
-         inno.ventas.2015 = (inno.tot.2015 / ing.2015)*100,
-         inno.ventas.2016 = (inno.tot.2016 / ing.2016)*100,
-         id.ventas.2014   = (inno.id.2014 / ing.2014)*100,
-         id.ventas.2015   = (inno.id.2015 / ing.2015)*100,
-         id.ventas.2016   = (inno.id.2016 / ing.2016)*100) 
+  mutate(inno.ventas.2014 = (inno.tot.2014 / ing_2014)*100,
+         inno.ventas.2015 = (inno.tot.2015 / ing_2015)*100,
+         inno.ventas.2016 = (inno.tot.2016 / ing_2016)*100,
+         id.ventas.2014 = (inno.id.2014 / ing_2014)*100,
+         id.ventas.2015 = (inno.id.2015 / ing_2015)*100,
+         id.ventas.2016 = (inno.id.2016 / ing_2016)*100) 
 
 # Promedios 2014-2016 (hacer funcion)
 endei = endei %>% 
   rowwise() %>% 
-  mutate(ing         = mean(c(ing.2014, ing.2015, ing.2016)),
-         empleo      = mean(c(empleo.2014, empleo.2015, empleo.2016)),
-         inno.tot    = mean(c(inno.tot.2014, inno.tot.2015, inno.tot.2016)),
-         inno.id     = mean(c(inno.id.2014, inno.id.2015, inno.id.2016)),
-         va.tr       = mean(c(va.tr.2014, va.tr.2015, va.tr.2016)),
-         inno.ventas = mean(c(inno.ventas.2014, inno.ventas.2015, inno.ventas.2016)),
-         id.ventas   = mean(c(id.ventas.2014, id.ventas.2015, id.ventas.2016))
+  mutate(ing = mean(c(ing_2014, ing_2015, ing_2016)),
+         empleo = mean(c(empleo_2014, empleo_2015, empleo_2016)),
+         inno_tot = mean(c(inno.tot.2014, inno.tot.2015, inno.tot.2016)),
+         inno_id = mean(c(inno.id.2014, inno.id.2015, inno.id.2016)),
+         va_tr = mean(c(va.tr.2014, va.tr.2015, va.tr.2016)),
+         inno_ventas = mean(c(inno.ventas.2014, inno.ventas.2015, inno.ventas.2016)),
+         id_ventas = mean(c(id.ventas.2014, id.ventas.2015, id.ventas.2016))
   )
 
 # TC 2014-2016
 # promedios 2014-2016
 endei = endei %>% 
   mutate(tc.va.tr  = ((va.tr.2016-va.tr.2014)/va.tr.2014)*100,
-         tc.empleo = ((empleo.2016-empleo.2014)/empleo.2014)*100,
-         tc.ventas = ((ing.2016-ing.2014)/ing.2014)*100)
+         tc.empleo = ((empleo_2016-empleo_2014)/empleo_2014)*100,
+         tc.ventas = ((ing_2016-ing_2014)/ing_2014)*100)
 
 
 # Guardo base con todos los atributos 
