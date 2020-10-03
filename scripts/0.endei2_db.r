@@ -119,15 +119,14 @@ baja_tecnologia = c('Otras', 'Madera', 'Papel', 'Alimentos', 'Edicion', 'Frigori
                     'Vinos y otras bebidas fermentadas', 'Productos textiles', 'Confecciones', 'Cuero', 'Muebles')
 
 endei = endei %>% 
-  mutate(calif.ocde = factor(case_when(rama_act %in% alta_tecnologia ~ 'Alta Tecnologia',
+  mutate(calif_ocde = factor(case_when(rama_act %in% alta_tecnologia ~ 'Alta Tecnologia',
                                        rama_act %in% media_alta_tecnologia ~ 'Media-Alta Tecnologia',
                                        rama_act %in% media_baja_tecnologia ~ 'Media-Baja Tecnologia',
                                        rama_act %in% baja_tecnologia ~ 'Baja Tecnologia'),
                              levels =c('Baja Tecnologia',
                                        'Media-Baja Tecnologia',
                                        'Media-Alta Tecnologia',
-                                       'Alta Tecnologia')),
-         rama.num = factor(as.numeric(rama_act)))
+                                       'Alta Tecnologia')))
 
 # obtuvo y solicito financiamiento para innovacion
 # esto lo cambiaron, ver de armar variables de financiamiento
@@ -163,7 +162,7 @@ endei = endei %>%
          d_montec = ifelse(p.2.3.2=="Si",1,0),
          d_montcomp = ifelse(p.2.3.5=="Si",1,0),
          d_moninfo = ifelse(p.2.7.1=="Si",1,0),
-         abs_ih = sum(d_deptoid, d_montec, d_montcomp)) 
+         abs_ih = sum(d_deptoid, d_montcomp, d_moninfo)) 
 
 endei = endei %>%   
   mutate(prop_prof = mean(c(prop_calprof_2014, prop_calprof_2015, prop_calprof_2016)),
@@ -227,7 +226,6 @@ endei = endei %>%
   mutate_at(vars(all_of(vars_obst)), funs(str_replace(., "SI", "Si"))) %>% 
   mutate_at(vars(all_of(vars_obst)), funs(ifelse(.=="Si",1,0))) 
 
-
 # Paso a usd
 endei = endei %>% 
   mutate(ing_2014 = ingr_total_2014 / tc.2014,
@@ -264,7 +262,7 @@ endei = endei %>%
 # TC 2014-2016
 # promedios 2014-2016
 endei = endei %>% 
-  mutate(tc.va.tr  = ((va.tr.2016-va.tr.2014)/va.tr.2014)*100,
+  mutate(tc.va.tr = ((va.tr.2016-va.tr.2014)/va.tr.2014)*100,
          tc.empleo = ((empleo_2016-empleo_2014)/empleo_2014)*100,
          tc.ventas = ((ing_2016-ing_2014)/ing_2014)*100)
 

@@ -8,6 +8,15 @@ semilla = 123
 endei_clu = readRDS('working/endei_clu')
 
 
+# 0. Distribucion de clusters -------------------------------------------------
+
+# Proporcion de firmas por cluster
+
+endei_clu %>% ggplot(aes(x = cluster, fill = cluster)) +
+  geom_bar() +
+  scale_fill_grey(start=0.8, end=0.4) + theme_classic()
+
+
 # 1. Descriptivas variables que se usaron para crear los clusters -------------
 
 # variables usadas
@@ -19,12 +28,12 @@ endei_vi = endei_clu %>% select(all_of(c('cluster', var_inp)))
 # a.capacidades productivas
 
 endei_vi %>% ggplot(aes(x=capac_prod, group = cluster, fill = cluster)) + 
-  geom_bar(position="dodge", aes()) +
-  scale_fill_grey(start=0.7, end=0.4) + theme_minimal()
+  geom_bar(position="dodge", aes(y=..prop..)) +
+  scale_fill_grey(start=0.8, end=0.4) + theme_classic()
 
 endei_vi %>% ggplot(aes(x=prac_empre, group = cluster, fill = cluster)) + 
-  geom_bar(position="dodge", aes()) +
-  scale_fill_grey(start=0.7, end=0.4) + theme_minimal()
+  geom_bar(position="dodge", aes(y=..prop..)) +
+  scale_fill_grey(start=0.8, end=0.4) + theme_minimal()
 
 # b.capacidades de absorcion
 
@@ -61,9 +70,10 @@ endei_vi %>% ggplot(aes(x=abs_ih, group = cluster, fill = cluster)) +
   
 var_orig = c('d_especinsum', 'd_especproce', 'd_trazabilidad', 'd_problemas',
              'd_mejoracont', 'd_diseno', 'd_deptoid', 'd_montcomp', 'd_montec', 
-             'prop_prof', 'prop_tec', 'd_rrhhrem', 'd_rrhhcar', 'd_rrhhdes',
-             'd_informat', 'd_sistemas', 'd_sapoydec', 
-             'capacit_nojer', 'capacit_ger', 'capacit_sup', 'dvinc_firmas', 'dvinc_pub')
+             'prop_prof', 'prop_tec', 'd_rrhhdto', 'd_perffor', 'd_evaldes',
+             'd_sistemas', 'd_sapoydec', 'd_softgest', 
+             'capacit_nojer', 'capacit_ger', 'capacit_sup', 
+             'd_vincpub', 'd_vincfir', 'd_vincase')
 
 endei_vo = endei_clu %>% select(all_of(c('cluster', var_orig)))
 
@@ -73,12 +83,14 @@ clust_mean = endei_vo %>% group_by(cluster) %>%
 clust_mean = as.data.frame(t(as.matrix(clust_mean)))  
 clust_mean  
   
+
 # 3. Descriptivas de variables estructurales de las firmas --------------------
 
 # variables output
-var_oup = c('tam_nue','rama_act','calif.ocde','exporta', 'exp.hincome', 'exp.dest','innovo', 'k.inac','ing',
-            'empleo','va.tr', 'dnorm.calidad', 'joven', 'inno.ventas', 'id.ventas', 'dai','did', 'inno.tot', 'inno.id',
-            'tc.va.tr', 'tc.empleo','tc.ventas')
+var_oup = c('tam_mue', 'joven', 'k_inac', 'rama_act', 'calif_ocde', 'exporta', 
+            'innovo', 'ing', 'va.tr', 'dnorm.calidad',  
+            'inno.ventas', 'id.ventas', 'dai','did', 'inno.tot', 'inno.id',
+            'empleo', 'tc.va.tr', 'tc.empleo','tc.ventas')
 
 endei_vo = endei_clu %>% select(all_of(c('cluster', var_oup)))
 
