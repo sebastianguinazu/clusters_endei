@@ -177,7 +177,7 @@ endei = endei %>%
 
 endei = endei %>% 
   mutate(d_rrhhdto = ifelse(p.10.1=="Si",1,0),
-         d_perffor = ifelse(p.10.2.1=="Si",1,0),
+           d_perffor = ifelse(p.10.2.1=="Si",1,0),
          d_evaldes = ifelse(p.10.4.1=="Si",1,0),
          gest_rrhh = sum(d_rrhhdto, d_perffor, d_evaldes))
 

@@ -5,7 +5,9 @@ source('scripts/libraries.r')
 
 endei = readRDS('working/endei_db')
 
-semilla = 1234
+semilla = 888
+
+endei = endei %>% filter(outlier == 0)
 
 
 # Seleccion de variables ------------------------------------------------------
@@ -40,6 +42,16 @@ df_varsel %>% summary()
 
 saveRDS(df_varsel, 'working/df_endei2.rds')
 
+# Descriptivos del dataset final
+df_final_stats = rbind(
+  df_varsel %>% summarise(across(everything(), median))
+  ,df_varsel %>% summarise(across(everything(), mean))
+  ,df_varsel %>% summarise(across(everything(), sd))
+  )
+df_final_stats = as.data.frame(t(as.matrix(df_final_stats)))  
+df_final_stats %>% round(3)
+
+
 # Genero matriz de distancias
 df_varsel_dist = dist(df_varsel, method = 'manhattan')
 
@@ -60,7 +72,7 @@ GGally::ggcorr(df_varsel)
 
 # Hopkins
 hopkins(df_varsel, n = 400)
-# 0.817
+# 0.828
 
 # Heatmap -> calcular distancia con manhatan
 fviz_dist(dist(df_varsel_sample, method = "manhattan"), 
@@ -148,9 +160,9 @@ t(K4$centers)
 wss = sum(K4$withinss)
 
 df4 = data.frame(df_varsel, cluster = K4$cluster) %>% 
-  mutate(cluster=case_when(cluster == 4 ~ 1,
-                           cluster == 1 ~ 2,
-                           cluster == 3 ~ 3,
+  mutate(cluster=case_when(cluster == 3 ~ 1,
+                           cluster == 2 ~ 2,
+                           cluster == 1 ~ 3,
                            TRUE ~ 4))
 table(df4$cluster)
 
